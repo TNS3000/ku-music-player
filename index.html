@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VEGEKUL MUSIC</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --vk-green: #2d7a3a;
+  --vk-green-light: #e8f4eb;
+  --vk-green-dark: #1e5428;
+  --vk-text: #1a1a1a;
+  --vk-sub: #5a5a5a;
+  --vk-hint: #9a9a9a;
+  --vk-border: rgba(0,0,0,0.1);
+}
+body {
+  font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
+  background: #f5f5f5;
+  display: flex; justify-content: center; padding: 20px;
+  min-height: 100vh;
+}
+.app {
+  background: white; max-width: 400px; width: 100%;
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.topbar { background: var(--vk-green); padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
+.topbar-left { display: flex; align-items: center; gap: 10px; }
+.topbar-icon { width: 32px; height: 32px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.topbar-name { font-size: 14px; font-weight: 700; color: white; letter-spacing: 0.05em; }
+.topbar-sub { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 1px; }
+.track-count { font-size: 12px; color: rgba(255,255,255,0.7); }
+
+.now-playing { margin: 14px 16px 0; background: var(--vk-green); border-radius: 14px; padding: 18px; color: white; }
+.np-label { font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; margin-bottom: 8px; }
+.np-title { font-size: 15px; font-weight: 700; color: white; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.np-meta { font-size: 11px; color: rgba(255,255,255,0.65); margin-bottom: 16px; }
+
+.prog-bar { width: 100%; height: 4px; background: rgba(255,255,255,0.25); border-radius: 2px; cursor: pointer; margin-bottom: 6px; }
+.prog-fill { height: 100%; background: white; border-radius: 2px; width: 0%; transition: width 0.5s linear; }
+.time-row { display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+
+.controls { display: flex; align-items: center; justify-content: center; gap: 24px; }
+.ctrl-btn { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.8); display: flex; align-items: center; justify-content: center; padding: 4px; transition: color 0.1s; }
+.ctrl-btn:hover { color: white; }
+.play-btn { width: 48px; height: 48px; border-radius: 50%; background: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--vk-green); transition: transform 0.1s; }
+.play-btn:active { transform: scale(0.94); }
+
+.error-msg {
+  font-size: 11px; color: rgba(255,255,255,0.85); margin-top: 12px;
+  padding: 10px; background: rgba(0,0,0,0.2); border-radius: 8px;
+  display: none; line-height: 1.6;
+}
+
+.options-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--vk-border); }
+.opt-label { font-size: 13px; color: var(--vk-sub); }
+.toggle { width: 40px; height: 22px; border-radius: 11px; background: #ccc; border: none; cursor: pointer; position: relative; transition: background 0.2s; }
+.toggle.on { background: var(--vk-green); }
+.toggle-thumb { width: 18px; height: 18px; border-radius: 50%; background: white; position: absolute; top: 2px; left: 2px; transition: left 0.2s; }
+.toggle.on .toggle-thumb { left: 20px; }
+
+.queue-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 8px; }
+.queue-title { font-size: 11px; color: var(--vk-hint); font-weight: 700; letter-spacing: 0.1em; }
+.queue-count { font-size: 11px; color: var(--vk-hint); }
+.queue-list { padding: 0 16px 24px; max-height: 400px; overflow-y: auto; }
+.queue-item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--vk-border); cursor: pointer; gap: 10px; transition: opacity 0.1s; }
+.queue-item:last-child { border-bottom: none; }
+.queue-item:hover { opacity: 0.75; }
+.queue-item.active .qi-title { color: var(--vk-green); font-weight: 700; }
+.queue-item.active .qi-num { color: var(--vk-green); }
+.qi-num { font-size: 12px; color: var(--vk-hint); width: 20px; text-align: center; flex-shrink: 0; }
+.qi-info { flex: 1; min-width: 0; }
+.qi-title { font-size: 13px; color: var(--vk-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.qi-meta { font-size: 11px; color: var(--vk-hint); margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2d7a3a" stroke-width="2.5">
+          <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+        </svg>
+      </div>
+      <div>
+        <div class="topbar-name">VEGEKUL MUSIC</div>
+        <div class="topbar-sub">倉庫作業用プレイヤー</div>
+      </div>
+    </div>
+    <span class="track-count" id="trackCount">20曲</span>
+  </div>
+
+  <div class="now-playing">
+    <div class="np-label">NOW PLAYING</div>
+    <div class="np-title" id="npTitle">タップして再生</div>
+    <div class="np-meta" id="npMeta">— / 20</div>
+    <div class="prog-bar" id="progBar" onclick="seekTo(event)">
+      <div class="prog-fill" id="progFill"></div>
+    </div>
+    <div class="time-row">
+      <span id="timeEl">0:00</span>
+      <span id="timeDu">—</span>
+    </div>
+    <div class="controls">
+      <button class="ctrl-btn" onclick="prevTrack()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/>
+        </svg>
+      </button>
+      <button class="play-btn" id="playBtn" onclick="togglePlay()">
+        <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="5 3 19 12 5 21 5 3"/>
+        </svg>
+      </button>
+      <button class="ctrl-btn" onclick="nextTrack()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/>
+        </svg>
+      </button>
+    </div>
+    <div class="error-msg" id="errorMsg">
+      ⚠️ 再生できませんでした。Googleドライブの共有設定を「リンクを知っている全員が閲覧可」に変更してから再試行してください。
+    </div>
+  </div>
+
+  <div class="options-row">
+    <span class="opt-label">シャッフル再生</span>
+    <button class="toggle on" id="shuffleBtn" onclick="toggleShuffle()">
+      <div class="toggle-thumb"></div>
+    </button>
+  </div>
+
+  <div class="queue-header">
+    <span class="queue-title">QUEUE</span>
+    <span class="queue-count" id="queueCount">20曲</span>
+  </div>
+  <div class="queue-list" id="queueList"></div>
+
+</div>
+
+<script>
+const FILE_IDS = [
+  '1uNIP6U2lpmkvn381xgfggvRdoxK2v4_H',
+  '13W38N_XoC2Lo0PHNNhGwdecEoJXbqwUr',
+  '1cf4it072MHjViKj81UEm8VRrNv9adF0C',
+  '1fsGXE_uSAI-jpPqD605SbnjJFz33ARP_',
+  '15ylRATPPDX84R7GL35s1QTvfqzKEIWpO',
+  '1CI_7STu_e0mjPoBPd39FX_RtzRe4KvrG',
+  '1U7anRTHTCJkM16ZSocsbgLxG1jeIZEB2',
+  '1KWLkcTAPf-tqrQRG8DtcjoDxNrjEl2Ve',
+  '1NnuSikwh9QSjP7eZUMxGw11M9Nzvk5SJ',
+  '1wCykJZlkIJ-TwdGdH2GeQq6MluMN3F0i',
+  '1F3jGuq54ZsqRl_fNXtmsJlYOHhA21DtO',
+  '12Pbs2tJ_lp_spYg7tiCBXzge8f8oGCKi',
+  '1CTdVcJ-_pjlkQpiA8GRk9nYLc2pEz9cw',
+  '1gDagjWp5xm_AOERgez0nCzChE7VWz1_Q',
+  '14qiqpjXRxQmdg2j0rQNSDY66hLiezVw3',
+  '16JxhhRHc6Lk59XAkkr2Pv9BNxdBbhyse',
+  '1EEwsQIoOohrpJBcxyeMgs47aReD32qkN',
+  '1EZpOb8bGM-99EV5T7p6KOxKsfWnqqM7X',
+  '1aCeyS4E37PKdSPm7aG28RI4A6fN9nvY5',
+  '1V6rWy-rcKQv5tthqe7cFoWFiH7P4LZcM',
+];
+
+const tracks = FILE_IDS.map((id, i) => ({
+  num: i + 1,
+  title: `Track ${String(i+1).padStart(2,'0')}`,
+  id: `KU-${String(i+1).padStart(3,'0')}`,
+  url: `https://drive.google.com/uc?export=download&id=${id}`,
+}));
+
+let queue = [], idx = 0, shuffle = true, playing = false;
+const audio = new Audio();
+
+audio.addEventListener('timeupdate', () => {
+  if (!audio.duration) return;
+  const pct = (audio.currentTime / audio.duration) * 100;
+  document.getElementById('progFill').style.width = Math.round(pct) + '%';
+  document.getElementById('timeEl').textContent = fmt(Math.floor(audio.currentTime));
+  document.getElementById('timeDu').textContent = fmt(Math.floor(audio.duration));
+});
+audio.addEventListener('ended', nextTrack);
+audio.addEventListener('error', () => {
+  document.getElementById('errorMsg').style.display = 'block';
+  setIcon(false); playing = false;
+});
+audio.addEventListener('playing', () => {
+  document.getElementById('errorMsg').style.display = 'none';
+});
+
+function buildQueue() {
+  let t = [...tracks];
+  if (shuffle) for (let i = t.length-1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i+1));
+    [t[i], t[j]] = [t[j], t[i]];
+  }
+  return t;
+}
+
+function load(i) {
+  const t = queue[i];
+  audio.src = t.url;
+  audio.load();
+  document.getElementById('npTitle').textContent = t.title;
+  document.getElementById('npMeta').textContent = `${t.id}  ·  ${i+1} / ${queue.length}`;
+  document.getElementById('progFill').style.width = '0%';
+  document.getElementById('timeEl').textContent = '0:00';
+  document.getElementById('timeDu').textContent = '—';
+  renderQueue();
+}
+
+function togglePlay() {
+  if (playing) {
+    audio.pause(); playing = false; setIcon(false);
+  } else {
+    audio.play()
+      .then(() => { playing = true; setIcon(true); })
+      .catch(() => { document.getElementById('errorMsg').style.display = 'block'; });
+  }
+}
+
+function nextTrack() {
+  idx = (idx + 1) % queue.length;
+  load(idx);
+  if (playing) audio.play().catch(() => {});
+}
+
+function prevTrack() {
+  if (audio.currentTime > 3) { audio.currentTime = 0; return; }
+  idx = (idx - 1 + queue.length) % queue.length;
+  load(idx);
+  if (playing) audio.play().catch(() => {});
+}
+
+function seekTo(e) {
+  if (!audio.duration) return;
+  const r = e.currentTarget.getBoundingClientRect();
+  audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+}
+
+function toggleShuffle() {
+  shuffle = !shuffle;
+  document.getElementById('shuffleBtn').classList.toggle('on', shuffle);
+  const cur = queue[idx].id;
+  queue = buildQueue();
+  idx = queue.findIndex(t => t.id === cur);
+  renderQueue();
+}
+
+function jumpTo(i) {
+  idx = i; load(idx);
+  playing = true;
+  audio.play().then(() => setIcon(true)).catch(() => {
+    document.getElementById('errorMsg').style.display = 'block';
+  });
+}
+
+function setIcon(p) {
+  document.getElementById('playBtn').innerHTML = p
+    ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>'
+    : '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+}
+
+function renderQueue() {
+  document.getElementById('queueCount').textContent = queue.length + '曲';
+  document.getElementById('queueList').innerHTML = queue.map((t, i) => `
+    <div class="queue-item ${i === idx ? 'active' : ''}" onclick="jumpTo(${i})">
+      <span class="qi-num">${i === idx ? '▶' : i+1}</span>
+      <div class="qi-info">
+        <div class="qi-title">${t.title}</div>
+        <div class="qi-meta">${t.id}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function fmt(s) {
+  return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
+}
+
+queue = buildQueue();
+load(0);
+</script>
+</body>
+</html>
