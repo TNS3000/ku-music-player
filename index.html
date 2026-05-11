@@ -22,6 +22,13 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
 .topbar-name { font-size: 14px; font-weight: 700; color: white; letter-spacing: 0.05em; }
 .topbar-sub { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 1px; }
 .track-count { font-size: 12px; color: rgba(255,255,255,0.7); }
+
+/* Zone selector */
+.zone-bar { display: flex; gap: 8px; padding: 12px 16px; background: var(--vk-green-light); border-bottom: 1px solid var(--vk-border); }
+.zone-btn { flex: 1; padding: 8px 0; border-radius: 8px; border: 2px solid var(--vk-green); background: white; color: var(--vk-green); font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.15s, color 0.15s; }
+.zone-btn.active { background: var(--vk-green); color: white; }
+.zone-btn:hover:not(.active) { background: var(--vk-green-light); }
+
 .now-playing { margin: 14px 16px 0; background: var(--vk-green); border-radius: 14px; padding: 18px; color: white; }
 .np-label { font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; margin-bottom: 8px; }
 .np-title { font-size: 15px; font-weight: 700; color: white; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -51,6 +58,7 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
 .qi-num { font-size: 12px; color: var(--vk-hint); width: 20px; text-align: center; flex-shrink: 0; }
 .qi-info { flex: 1; min-width: 0; }
 .qi-title { font-size: 13px; color: var(--vk-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.qi-bpm { font-size: 11px; color: var(--vk-hint); margin-top: 2px; }
 </style>
 </head>
 <body>
@@ -69,6 +77,13 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
     </div>
     <span class="track-count" id="trackCount"></span>
   </div>
+
+  <div class="zone-bar">
+    <button class="zone-btn active" id="zoneBtn1" onclick="switchZone(1)">Zone 1</button>
+    <button class="zone-btn" id="zoneBtn2" onclick="switchZone(2)">Zone 2</button>
+    <button class="zone-btn" id="zoneBtn3" onclick="switchZone(3)">Zone 3</button>
+  </div>
+
   <div class="now-playing">
     <div class="np-label">NOW PLAYING</div>
     <div class="np-title" id="npTitle">タップして再生</div>
@@ -92,12 +107,14 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
       </button>
     </div>
   </div>
+
   <div class="options-row">
     <span class="opt-label">シャッフル再生</span>
     <button class="toggle on" id="shuffleBtn" onclick="toggleShuffle()">
       <div class="toggle-thumb"></div>
     </button>
   </div>
+
   <div class="queue-header">
     <span class="queue-title">QUEUE</span>
     <span class="queue-count" id="queueCount"></span>
@@ -105,30 +122,33 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
   <div class="queue-list" id="queueList"></div>
 </div>
 <script>
-const TRACKS = [
-  { title: 'Blue Note Drift',       file: 'Blue Note Drift.mp3' },
-  { title: 'Blue Notebook Loop',    file: 'Blue Notebook Loop.mp3' },
-  { title: 'Djembe Window',         file: 'Djembe Window.mp3' },
-  { title: 'Late Bus Notebook',     file: 'Late Bus Notebook.mp3' },
-  { title: 'Mango Paper Plane',     file: 'Mango Paper Plane.mp3' },
-  { title: 'Mango Paper Plane 2',   file: 'Mango Paper Plane (1).mp3' },
-  { title: 'Midnight Spreadsheet',  file: 'Midnight Spreadsheet.mp3' },
-  { title: 'Paper Cup Morning',     file: 'Paper Cup Morning.mp3' },
-  { title: 'Paper Cup Sunset',      file: 'Paper Cup Sunset.mp3' },
-  { title: 'Paper Lantern Drift',   file: 'Paper Lantern Drift.mp3' },
-  { title: 'Paper Lantern Drift 2', file: 'Paper Lantern Drift (1).mp3' },
-  { title: 'Paper Lantern Notes',   file: 'Paper Lantern Notes.mp3' },
-  { title: 'Paper Lantern Walk',    file: 'Paper Lantern Walk.mp3' },
-  { title: 'Paper Lantern Walk 2',  file: 'Paper Lantern Walk (1).mp3' },
-  { title: 'Pollen on Paper',       file: 'Pollen on Paper.mp3' },
-  { title: 'Pollen on Paper 2',     file: 'Pollen on Paper (1).mp3' },
-  { title: 'Rain on Clavinet',      file: 'Rain on Clavinet.mp3' },
-  { title: 'Velvet Grid',           file: 'Velvet Grid.mp3' },
-  { title: 'Velvet Grid 2',         file: 'Velvet Grid (1).mp3' },
-  { title: 'Velvet Rimshot Drift',  file: 'Velvet Rimshot Drift.mp3' },
-];
-let queue = [], idx = 0, shuffle = true, playing = false;
+const ZONES = {
+  1: [
+    { title: 'KU-Z1-001', file: 'zone1/KU-Z1-001_104bpm.mp3', bpm: '104 BPM' },
+    { title: 'KU-Z1-002', file: 'zone1/KU-Z1-002_108bpm.mp3', bpm: '108 BPM' },
+    { title: 'KU-Z1-003', file: 'zone1/KU-Z1-003_100bpm.mp3', bpm: '100 BPM' },
+    { title: 'KU-Z1-004', file: 'zone1/KU-Z1-004_106bpm.mp3', bpm: '106 BPM' },
+    { title: 'KU-Z1-005', file: 'zone1/KU-Z1-005_110bpm.mp3', bpm: '110 BPM' },
+  ],
+  2: [
+    { title: 'KU-Z2-001', file: 'zone2/KU-Z2-001_112bpm.mp3', bpm: '112 BPM' },
+    { title: 'KU-Z2-002', file: 'zone2/KU-Z2-002_114bpm.mp3', bpm: '114 BPM' },
+    { title: 'KU-Z2-003', file: 'zone2/KU-Z2-003_116bpm.mp3', bpm: '116 BPM' },
+    { title: 'KU-Z2-004', file: 'zone2/KU-Z2-004_113bpm.mp3', bpm: '113 BPM' },
+    { title: 'KU-Z2-005', file: 'zone2/KU-Z2-005_118bpm.mp3', bpm: '118 BPM' },
+  ],
+  3: [
+    { title: 'KU-Z3-001', file: 'zone3/KU-Z3-001_120bpm.mp3', bpm: '120 BPM' },
+    { title: 'KU-Z3-002', file: 'zone3/KU-Z3-002_122bpm.mp3', bpm: '122 BPM' },
+    { title: 'KU-Z3-003', file: 'zone3/KU-Z3-003_119bpm.mp3', bpm: '119 BPM' },
+    { title: 'KU-Z3-004', file: 'zone3/KU-Z3-004_124bpm.mp3', bpm: '124 BPM' },
+    { title: 'KU-Z3-005', file: 'zone3/KU-Z3-005_121bpm.mp3', bpm: '121 BPM' },
+  ],
+};
+
+let currentZone = 1, queue = [], idx = 0, shuffle = true, playing = false;
 const audio = new Audio();
+
 audio.addEventListener('timeupdate', () => {
   if (!audio.duration) return;
   document.getElementById('progFill').style.width = Math.round((audio.currentTime / audio.duration) * 100) + '%';
@@ -136,59 +156,88 @@ audio.addEventListener('timeupdate', () => {
   document.getElementById('timeDu').textContent = fmt(Math.floor(audio.duration));
 });
 audio.addEventListener('ended', nextTrack);
-function buildQueue() {
-  let t = TRACKS.map((tr, i) => ({ ...tr, num: i + 1 }));
+
+function buildQueue(zone) {
+  let t = ZONES[zone].map((tr, i) => ({ ...tr, num: i + 1 }));
   if (shuffle) for (let i = t.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [t[i], t[j]] = [t[j], t[i]]; }
   return t;
 }
+
+function switchZone(zone) {
+  currentZone = zone;
+  [1, 2, 3].forEach(z => document.getElementById('zoneBtn' + z).classList.toggle('active', z === zone));
+  queue = buildQueue(zone);
+  idx = 0;
+  const wasPlaying = playing;
+  playing = false;
+  audio.pause();
+  load(0);
+  if (wasPlaying) { audio.play().then(() => { playing = true; setIcon(true); }).catch(() => {}); }
+}
+
 function load(i) {
   const t = queue[i];
   audio.src = t.file;
   audio.load();
   document.getElementById('npTitle').textContent = t.title;
-  document.getElementById('npMeta').textContent = (i + 1) + ' / ' + queue.length;
+  document.getElementById('npMeta').textContent = 'Zone ' + currentZone + '  ·  ' + t.bpm + '  ·  ' + (i + 1) + ' / ' + queue.length;
   document.getElementById('progFill').style.width = '0%';
   document.getElementById('timeEl').textContent = '0:00';
   document.getElementById('timeDu').textContent = '—';
-  document.getElementById('trackCount').textContent = TRACKS.length + '曲';
+  document.getElementById('trackCount').textContent = ZONES[currentZone].length + '曲';
   renderQueue();
 }
+
 function togglePlay() {
   if (playing) { audio.pause(); playing = false; setIcon(false); }
   else { audio.play().then(() => { playing = true; setIcon(true); }).catch(() => {}); }
 }
+
 function nextTrack() { idx = (idx + 1) % queue.length; load(idx); if (playing) audio.play().catch(() => {}); }
 function prevTrack() {
   if (audio.currentTime > 3) { audio.currentTime = 0; return; }
   idx = (idx - 1 + queue.length) % queue.length; load(idx); if (playing) audio.play().catch(() => {});
 }
+
 function seekTo(e) {
   if (!audio.duration) return;
   const r = e.currentTarget.getBoundingClientRect();
   audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
 }
+
 function toggleShuffle() {
   shuffle = !shuffle;
   document.getElementById('shuffleBtn').classList.toggle('on', shuffle);
-  const cur = queue[idx].file; queue = buildQueue(); idx = queue.findIndex(t => t.file === cur); renderQueue();
+  const cur = queue[idx].file;
+  queue = buildQueue(currentZone);
+  idx = queue.findIndex(t => t.file === cur);
+  renderQueue();
 }
+
 function jumpTo(i) { idx = i; load(idx); playing = true; audio.play().then(() => setIcon(true)).catch(() => {}); }
+
 function setIcon(p) {
   document.getElementById('playBtn').innerHTML = p
     ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>'
     : '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
 }
+
 function renderQueue() {
   document.getElementById('queueCount').textContent = queue.length + '曲';
   document.getElementById('queueList').innerHTML = queue.map((t, i) => `
     <div class="queue-item ${i === idx ? 'active' : ''}" onclick="jumpTo(${i})">
       <span class="qi-num">${i === idx ? '▶' : i + 1}</span>
-      <div class="qi-info"><div class="qi-title">${t.title}</div></div>
+      <div class="qi-info">
+        <div class="qi-title">${t.title}</div>
+        <div class="qi-bpm">${t.bpm}</div>
+      </div>
     </div>
   `).join('');
 }
+
 function fmt(s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
-queue = buildQueue();
+
+queue = buildQueue(currentZone);
 load(0);
 </script>
 </body>
