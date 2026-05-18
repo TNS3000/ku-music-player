@@ -82,6 +82,7 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
     <button class="zone-btn active" id="zoneBtn1" onclick="switchZone(1)">Zone 1<br>22:00-01:00<br>(100〜112 BPM)</button>
     <button class="zone-btn" id="zoneBtn2" onclick="switchZone(2)">Zone 2<br>01:00-04:00<br>(112〜118 BPM)</button>
     <button class="zone-btn" id="zoneBtn3" onclick="switchZone(3)">Zone 3<br>04:00-08:00<br>(118〜124 BPM)</button>
+    <button class="zone-btn" id="zoneBtn4" onclick="switchZone(4)">Zone 4<br>01:00-08:00<br>(90〜100 BPM)</button>
   </div>
 
   <div class="now-playing">
@@ -129,6 +130,11 @@ const ZONES = {
     { title: 'KU-Z1-003', file: 'zone1/KU-Z1-003_100bpm.mp3', bpm: '100 BPM' },
     { title: 'KU-Z1-004', file: 'zone1/KU-Z1-004_106bpm.mp3', bpm: '106 BPM' },
     { title: 'KU-Z1-005', file: 'zone1/KU-Z1-005_110bpm.mp3', bpm: '110 BPM' },
+    { title: 'KU-Z1-006', file: 'zone1/KU-Z1-006_70bpm.mp3',  bpm: '70 BPM'  },
+    { title: 'KU-Z1-007', file: 'zone1/KU-Z1-007_88bpm.mp3',  bpm: '88 BPM'  },
+    { title: 'KU-Z1-008', file: 'zone1/KU-Z1-008_76bpm.mp3',  bpm: '76 BPM'  },
+    { title: 'KU-Z1-009', file: 'zone1/KU-Z1-009_82bpm.mp3',  bpm: '82 BPM'  },
+    { title: 'KU-Z1-010', file: 'zone1/KU-Z1-010_90bpm.mp3',  bpm: '90 BPM'  },
   ],
   2: [
     { title: 'KU-Z2-001', file: 'zone2/KU-Z2-001_112bpm.mp3', bpm: '112 BPM' },
@@ -136,6 +142,11 @@ const ZONES = {
     { title: 'KU-Z2-003', file: 'zone2/KU-Z2-003_116bpm.mp3', bpm: '116 BPM' },
     { title: 'KU-Z2-004', file: 'zone2/KU-Z2-004_113bpm.mp3', bpm: '113 BPM' },
     { title: 'KU-Z2-005', file: 'zone2/KU-Z2-005_118bpm.mp3', bpm: '118 BPM' },
+    { title: 'KU-Z2-006', file: 'zone2/KU-Z2-006_102bpm.mp3', bpm: '102 BPM' },
+    { title: 'KU-Z2-007', file: 'zone2/KU-Z2-007_106bpm.mp3', bpm: '106 BPM' },
+    { title: 'KU-Z2-008', file: 'zone2/KU-Z2-008_109bpm.mp3', bpm: '109 BPM' },
+    { title: 'KU-Z2-009', file: 'zone2/KU-Z2-009_104bpm.mp3', bpm: '104 BPM' },
+    { title: 'KU-Z2-010', file: 'zone2/KU-Z2-010_111bpm.mp3', bpm: '111 BPM' },
   ],
   3: [
     { title: 'KU-Z3-001', file: 'zone3/KU-Z3-001_120bpm.mp3', bpm: '120 BPM' },
@@ -143,6 +154,23 @@ const ZONES = {
     { title: 'KU-Z3-003', file: 'zone3/KU-Z3-003_119bpm.mp3', bpm: '119 BPM' },
     { title: 'KU-Z3-004', file: 'zone3/KU-Z3-004_124bpm.mp3', bpm: '124 BPM' },
     { title: 'KU-Z3-005', file: 'zone3/KU-Z3-005_121bpm.mp3', bpm: '121 BPM' },
+    { title: 'KU-Z3-006', file: 'zone3/KU-Z3-006_113bpm.mp3', bpm: '113 BPM' },
+    { title: 'KU-Z3-007', file: 'zone3/KU-Z3-007_115bpm.mp3', bpm: '115 BPM' },
+    { title: 'KU-Z3-008', file: 'zone3/KU-Z3-008_117bpm.mp3', bpm: '117 BPM' },
+    { title: 'KU-Z3-009', file: 'zone3/KU-Z3-009_114bpm.mp3', bpm: '114 BPM' },
+    { title: 'KU-Z3-010', file: 'zone3/KU-Z3-010_116bpm.mp3', bpm: '116 BPM' },
+  ],
+  4: [
+    { title: 'KU-Z4-001', file: 'zone4/KU-Z4-001_92bpm.mp3',  bpm: '92 BPM'  },
+    { title: 'KU-Z4-002', file: 'zone4/KU-Z4-002_96bpm.mp3',  bpm: '96 BPM'  },
+    { title: 'KU-Z4-003', file: 'zone4/KU-Z4-003_90bpm.mp3',  bpm: '90 BPM'  },
+    { title: 'KU-Z4-004', file: 'zone4/KU-Z4-004_98bpm.mp3',  bpm: '98 BPM'  },
+    { title: 'KU-Z4-005', file: 'zone4/KU-Z4-005_94bpm.mp3',  bpm: '94 BPM'  },
+    { title: 'KU-Z4-006', file: 'zone4/KU-Z4-006_100bpm.mp3', bpm: '100 BPM' },
+    { title: 'KU-Z4-007', file: 'zone4/KU-Z4-007_93bpm.mp3',  bpm: '93 BPM'  },
+    { title: 'KU-Z4-008', file: 'zone4/KU-Z4-008_97bpm.mp3',  bpm: '97 BPM'  },
+    { title: 'KU-Z4-009', file: 'zone4/KU-Z4-009_91bpm.mp3',  bpm: '91 BPM'  },
+    { title: 'KU-Z4-010', file: 'zone4/KU-Z4-010_99bpm.mp3',  bpm: '99 BPM'  },
   ],
 };
 
@@ -165,7 +193,7 @@ function buildQueue(zone) {
 
 function switchZone(zone) {
   currentZone = zone;
-  [1, 2, 3].forEach(z => document.getElementById('zoneBtn' + z).classList.toggle('active', z === zone));
+  [1, 2, 3, 4].forEach(z => document.getElementById('zoneBtn' + z).classList.toggle('active', z === zone));
   queue = buildQueue(zone);
   idx = 0;
   const wasPlaying = playing;
