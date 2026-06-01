@@ -12,44 +12,102 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --leaf:        #2f7d3f;
-  --deep:        #1f5a2c;
-  --sprout:      #a8d49a;
-  --cream:       #f4f1e8;
-  --ink:         #1d241c;
-  --carrot:      #e3742a;
-  --vinyl-dark:  #181d18;
-  --ff-serif:    'Fraunces', Georgia, serif;
-  --ff-sans:     'Zen Kaku Gothic New', sans-serif;
+  --leaf:       #2f7d3f;
+  --deep:       #1f5a2c;
+  --darker:     #143d1f;
+  --sprout:     #a8d49a;
+  --cream:      #f4f1e8;
+  --ink:        #1d241c;
+  --ink-soft:   #5a6356;
+  --carrot:     #e3742a;
+  --vinyl-dark: #181d18;
+  --ff-serif:   'Fraunces', Georgia, serif;
+  --ff-sans:    'Zen Kaku Gothic New', sans-serif;
 }
 
 html, body {
   height: 100%;
-  background: var(--cream);
   font-family: var(--ff-sans);
   color: var(--ink);
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior: none;
 }
 
-.app {
-  max-width: 430px;
-  width: 100%;
+body {
+  background: linear-gradient(155deg, var(--leaf) 0%, #235f30 45%, var(--darker) 100%);
+  position: relative;
+}
+
+/* 上部の若葉色の光 */
+body::before {
+  content: '';
+  position: fixed;
+  top: -18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(700px, 110vw);
+  height: 55%;
+  background: radial-gradient(ellipse, rgba(168,212,154,.35) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ドット模様テクスチャ */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ====== ページ中央寄せ ====== */
+.page {
   min-height: 100dvh;
-  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ====== カード ====== */
+.card {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100dvh;
+  background: var(--cream);
   display: flex;
   flex-direction: column;
-  background: var(--cream);
   position: relative;
   overflow: hidden;
 }
 
-/* ====== Top bar ====== */
+/* デスクトップ：浮かせたカード */
+@media (min-width: 500px) {
+  .page {
+    align-items: center;
+    padding: 48px 20px;
+  }
+  .card {
+    min-height: auto;
+    border-radius: 24px;
+    box-shadow:
+      0 40px 80px rgba(0,0,0,.38),
+      0 12px 32px rgba(0,0,0,.22),
+      0 2px 8px  rgba(0,0,0,.12);
+    overflow: hidden;
+  }
+}
+
+/* ====== 上部バー ====== */
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 20px 10px;
+  padding: 20px 20px 12px;
   flex-shrink: 0;
 }
 .topbar-left {
@@ -62,39 +120,43 @@ html, body {
   display: flex;
   align-items: center;
   gap: 7px;
-  background: var(--ink);
+  background: var(--leaf);
   color: var(--cream);
   border: none;
   border-radius: 100px;
-  padding: 8px 14px 8px 11px;
+  padding: 8px 12px 8px 11px;
   cursor: pointer;
   font-family: var(--ff-sans);
   transition: background 0.15s;
   -webkit-appearance: none;
 }
-.zone-pill:active { background: #2e3a2d; }
+.zone-pill:active { background: var(--deep); }
 
 .pill-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--sprout);
+  background: rgba(244,241,232,.7);
   flex-shrink: 0;
 }
 .pill-text {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
   white-space: nowrap;
+}
+.pill-chevron {
+  color: rgba(244,241,232,.55);
+  flex-shrink: 0;
 }
 
 .mode-badge {
   font-size: 10px;
   font-weight: 700;
-  color: rgba(29,36,28,0.38);
+  color: var(--ink-soft);
   letter-spacing: 0.08em;
-  padding: 3px 7px;
-  border: 1px solid rgba(29,36,28,0.14);
+  padding: 3px 8px;
+  border: 1px solid rgba(29,36,28,.16);
   border-radius: 100px;
   user-select: none;
 }
@@ -102,27 +164,27 @@ html, body {
 .clock {
   font-size: 15px;
   font-weight: 500;
-  color: rgba(29,36,28,0.4);
+  color: rgba(29,36,28,.4);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
 }
 
-/* ====== Player main ====== */
+/* ====== プレイヤー本体 ====== */
 .player-main {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px 24px 40px;
+  padding: 8px 28px 48px;
 }
 
-/* ====== Vinyl ====== */
+/* ====== ビニールレコード ====== */
 .vinyl-wrap {
   position: relative;
-  width: min(272px, 70vw);
-  height: min(272px, 70vw);
-  margin-bottom: 36px;
+  width: min(280px, 72vw);
+  height: min(280px, 72vw);
+  margin-bottom: 32px;
   flex-shrink: 0;
 }
 
@@ -135,14 +197,14 @@ html, body {
     circle at center,
     transparent 0px,
     transparent 8px,
-    rgba(255,255,255,0.022) 8px,
-    rgba(255,255,255,0.022) 9px
+    rgba(255,255,255,.02) 8px,
+    rgba(255,255,255,.02) 9px
   );
   position: relative;
   box-shadow:
-    0 0 0 1.5px rgba(255,255,255,0.05),
-    0 16px 56px rgba(0,0,0,0.38),
-    0 4px 16px rgba(0,0,0,0.22);
+    0 0 0 1px rgba(255,255,255,.05),
+    0 20px 60px rgba(0,0,0,.42),
+    0 6px 20px rgba(0,0,0,.28);
   animation: vinyl-spin 8s linear infinite;
   animation-play-state: paused;
 }
@@ -150,13 +212,12 @@ html, body {
 
 @keyframes vinyl-spin { to { transform: rotate(360deg); } }
 
-/* 外周リング */
 .vinyl::before {
   content: '';
   position: absolute;
   inset: 3px;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,.035);
   pointer-events: none;
 }
 
@@ -170,22 +231,17 @@ html, body {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 38%, #a8d49a, #2f7d3f 55%, #1f5a2c);
+  background: radial-gradient(circle at 50% 36%, var(--sprout), var(--leaf) 52%, var(--deep));
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.45);
+  box-shadow: 0 2px 12px rgba(0,0,0,.5);
   background-size: cover;
   background-position: center;
 }
 .vinyl-label.has-art .label-text { display: none; }
 
 .label-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
   text-align: center;
   padding: 6px;
   pointer-events: none;
@@ -193,69 +249,75 @@ html, body {
 .label-name {
   font-family: var(--ff-serif);
   font-style: italic;
-  font-size: clamp(7px, 2vw, 10px);
+  font-size: 9px;
   color: var(--cream);
   letter-spacing: 0.02em;
-  line-height: 1.25;
-  white-space: nowrap;
-}
-.label-sub {
-  font-size: clamp(5px, 1.5vw, 7px);
-  color: rgba(244,241,232,0.6);
-  letter-spacing: 0.1em;
+  line-height: 1.3;
   white-space: nowrap;
 }
 
 /* スピンドル */
 .vinyl-spindle {
   position: absolute;
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--vinyl-dark);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 1.5px rgba(255,255,255,0.12), 0 1px 3px rgba(0,0,0,0.5);
+  box-shadow: 0 0 0 1.5px rgba(255,255,255,.12), 0 1px 3px rgba(0,0,0,.5);
   z-index: 2;
 }
 
-/* ====== トラック情報 ====== */
-.track-info {
+/* ====== BPM表示 ====== */
+.bpm-section {
   text-align: center;
   margin-bottom: 30px;
   width: 100%;
-  max-width: 300px;
 }
-.track-title {
+.bpm-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+.bpm-num {
   font-family: var(--ff-serif);
-  font-size: clamp(21px, 5.5vw, 27px);
+  font-size: clamp(44px, 11vw, 56px);
   font-weight: 600;
-  color: var(--ink);
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 5px;
-  line-height: 1.2;
+  color: var(--deep);
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
-.track-sub {
-  font-size: 12px;
-  color: rgba(29,36,28,0.42);
-  letter-spacing: 0.07em;
-  font-weight: 500;
+.bpm-unit {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: clamp(15px, 3.5vw, 19px);
+  color: var(--deep);
+  opacity: 0.5;
+  font-weight: 400;
+  padding-bottom: 4px;
+}
+.bpm-label {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: rgba(29,36,28,.32);
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-/* ====== プログレス ====== */
+/* ====== プログレスバー ====== */
 .progress-section {
   width: 100%;
-  max-width: 300px;
-  margin-bottom: 38px;
+  max-width: 310px;
+  margin-bottom: 40px;
 }
 .prog-bar {
   width: 100%;
   height: 3px;
-  background: rgba(29,36,28,0.1);
+  background: rgba(29,36,28,.1);
   border-radius: 2px;
   cursor: pointer;
   margin-bottom: 9px;
@@ -288,7 +350,7 @@ html, body {
   display: flex;
   justify-content: space-between;
   font-size: 11px;
-  color: rgba(29,36,28,0.38);
+  color: rgba(29,36,28,.38);
   font-variant-numeric: tabular-nums;
 }
 
@@ -297,13 +359,13 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 36px;
 }
 .ctrl-btn {
   background: none;
   border: none;
   cursor: pointer;
-  color: rgba(29,36,28,0.4);
+  color: rgba(29,36,28,.38);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -314,7 +376,7 @@ html, body {
 }
 .ctrl-btn:active {
   color: var(--ink);
-  background: rgba(29,36,28,0.07);
+  background: rgba(29,36,28,.07);
 }
 .play-btn {
   width: 68px;
@@ -329,7 +391,7 @@ html, body {
   color: var(--cream);
   transition: transform 0.1s, background 0.15s;
   -webkit-appearance: none;
-  box-shadow: 0 6px 24px rgba(29,36,28,0.22);
+  box-shadow: 0 6px 24px rgba(29,36,28,.22);
   flex-shrink: 0;
 }
 .play-btn:active { transform: scale(0.92); }
@@ -338,7 +400,7 @@ html, body {
 .sheet-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(29,36,28,0.42);
+  background: rgba(14,30,14,.52);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
@@ -349,7 +411,7 @@ html, body {
   pointer-events: all;
 }
 
-/* ====== ゾーンシート ====== */
+/* ====== ゾーン選択シート ====== */
 .zone-sheet {
   position: fixed;
   bottom: 0;
@@ -374,13 +436,11 @@ html, body {
 .sheet-handle {
   width: 36px;
   height: 4px;
-  background: rgba(29,36,28,0.14);
+  background: rgba(29,36,28,.14);
   border-radius: 2px;
 }
 
-.sheet-inner {
-  padding: 8px 20px 4px;
-}
+.sheet-inner { padding: 8px 20px 4px; }
 
 .sheet-header-row {
   display: flex;
@@ -402,14 +462,14 @@ html, body {
 }
 .auto-label {
   font-size: 12px;
-  color: rgba(29,36,28,0.5);
+  color: rgba(29,36,28,.5);
   font-weight: 500;
 }
 .toggle {
   width: 44px;
   height: 25px;
   border-radius: 13px;
-  background: rgba(29,36,28,0.14);
+  background: rgba(29,36,28,.14);
   border: none;
   cursor: pointer;
   position: relative;
@@ -427,16 +487,15 @@ html, body {
   top: 2px;
   left: 2px;
   transition: left 0.2s;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
 }
 .toggle.on .toggle-thumb { left: 21px; }
 
-/* ゾーン行 */
 .zone-row {
   display: flex;
   align-items: center;
   padding: 14px 8px;
-  border-bottom: 1px solid rgba(29,36,28,0.06);
+  border-bottom: 1px solid rgba(29,36,28,.06);
   cursor: pointer;
   gap: 14px;
   border-radius: 8px;
@@ -444,13 +503,13 @@ html, body {
   transition: background 0.12s;
 }
 .zone-row:last-child { border-bottom: none; }
-.zone-row:active { background: rgba(29,36,28,0.05); }
+.zone-row:active { background: rgba(29,36,28,.05); }
 
 .zone-indicator {
   width: 3px;
   height: 38px;
   border-radius: 2px;
-  background: rgba(29,36,28,0.1);
+  background: rgba(29,36,28,.1);
   flex-shrink: 0;
   transition: background 0.2s;
 }
@@ -467,11 +526,11 @@ html, body {
 .zone-row.active .zone-row-name { color: var(--leaf); }
 .zone-row-time {
   font-size: 11px;
-  color: rgba(29,36,28,0.42);
+  color: rgba(29,36,28,.42);
 }
 .zone-row-bpm {
   font-size: 11px;
-  color: rgba(29,36,28,0.35);
+  color: rgba(29,36,28,.35);
   text-align: right;
   flex-shrink: 0;
   font-variant-numeric: tabular-nums;
@@ -491,9 +550,9 @@ html, body {
 }
 .csv-btn {
   font-size: 11px;
-  color: rgba(29,36,28,0.32);
+  color: rgba(29,36,28,.32);
   background: none;
-  border: 1px solid rgba(29,36,28,0.1);
+  border: 1px solid rgba(29,36,28,.1);
   border-radius: 8px;
   padding: 7px 14px;
   cursor: pointer;
@@ -505,66 +564,74 @@ html, body {
 </style>
 </head>
 <body>
-<div class="app">
-  <!-- 上部バー -->
-  <div class="topbar">
-    <div class="topbar-left">
-      <button class="zone-pill" id="zonePill" onclick="openSheet()">
-        <span class="pill-dot"></span>
-        <span class="pill-text" id="pillText">Zone 1 · Deep Work</span>
-      </button>
-      <span class="mode-badge" id="modeBadge">自動</span>
-    </div>
-    <span class="clock" id="clockEl">00:00</span>
-  </div>
 
-  <!-- プレイヤー本体 -->
-  <div class="player-main">
-    <!-- ビニールレコード -->
-    <div class="vinyl-wrap">
-      <div class="vinyl" id="vinyl">
-        <div class="vinyl-label" id="vinylLabel">
-          <div class="label-text">
-            <div class="label-name">VEGEKUL MUSIC</div>
-            <div class="label-sub">空 · KU SOUND</div>
+<div class="page">
+  <div class="card">
+    <!-- 上部バー -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="zone-pill" id="zonePill" onclick="openSheet()">
+          <span class="pill-dot"></span>
+          <span class="pill-text" id="pillText">ZONE 1 · Deep Work</span>
+          <svg class="pill-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <span class="mode-badge" id="modeBadge">自動</span>
+      </div>
+      <span class="clock" id="clockEl">00:00</span>
+    </div>
+
+    <!-- プレイヤー本体 -->
+    <div class="player-main">
+      <!-- ビニールレコード -->
+      <div class="vinyl-wrap">
+        <div class="vinyl" id="vinyl">
+          <div class="vinyl-label" id="vinylLabel">
+            <div class="label-text">
+              <div class="label-name">VEGEKUL MUSIC</div>
+            </div>
           </div>
+          <div class="vinyl-spindle"></div>
         </div>
-        <div class="vinyl-spindle"></div>
       </div>
-    </div>
 
-    <!-- トラック情報 -->
-    <div class="track-info">
-      <div class="track-title" id="npTitle">—</div>
-      <div class="track-sub" id="npMeta">Instrumental</div>
-    </div>
-
-    <!-- プログレス -->
-    <div class="progress-section">
-      <div class="prog-bar" id="progBar" onclick="seekTo(event)">
-        <div class="prog-fill" id="progFill"></div>
+      <!-- BPM -->
+      <div class="bpm-section">
+        <div class="bpm-row">
+          <span class="bpm-num" id="npBpm">—</span>
+          <span class="bpm-unit">BPM</span>
+        </div>
+        <div class="bpm-label">Instrumental</div>
       </div>
-      <div class="time-row">
-        <span id="timeEl">0:00</span>
-        <span id="timeDu">—</span>
-      </div>
-    </div>
 
-    <!-- コントロール -->
-    <div class="controls">
-      <button class="ctrl-btn" onclick="prevTrack()" aria-label="前の曲">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/>
-        </svg>
-      </button>
-      <button class="play-btn" id="playBtn" onclick="togglePlay()" aria-label="再生/停止">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-      </button>
-      <button class="ctrl-btn" onclick="nextTrack()" aria-label="次の曲">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/>
-        </svg>
-      </button>
+      <!-- プログレスバー -->
+      <div class="progress-section">
+        <div class="prog-bar" id="progBar" onclick="seekTo(event)">
+          <div class="prog-fill" id="progFill"></div>
+        </div>
+        <div class="time-row">
+          <span id="timeEl">0:00</span>
+          <span id="timeDu">—</span>
+        </div>
+      </div>
+
+      <!-- コントロール -->
+      <div class="controls">
+        <button class="ctrl-btn" onclick="prevTrack()" aria-label="前の曲">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/>
+          </svg>
+        </button>
+        <button class="play-btn" id="playBtn" onclick="togglePlay()" aria-label="再生/停止">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+        <button class="ctrl-btn" onclick="nextTrack()" aria-label="次の曲">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -629,10 +696,10 @@ const exportCSV = () => {
 
 // === ゾーン定義 ===
 const ZONE_META = {
-  1: { name: 'Zone 1', label: 'Deep Work',   time: '08:00–13:00', bpm: '70–90 BPM'   },
-  2: { name: 'Zone 2', label: 'Active Flow',  time: '13:00–19:00', bpm: '100–112 BPM' },
-  3: { name: 'Zone 3', label: 'Night Drive',  time: '19:00–01:00', bpm: '112–118 BPM' },
-  4: { name: 'Zone 4', label: 'Deep Night',   time: '01:00–08:00', bpm: '90–100 BPM'  },
+  1: { name: 'ZONE 1', label: 'Deep Work',   time: '08:00–13:00', bpm: '70–90 BPM'   },
+  2: { name: 'ZONE 2', label: 'Active Flow',  time: '13:00–19:00', bpm: '100–112 BPM' },
+  3: { name: 'ZONE 3', label: 'Night Drive',  time: '19:00–01:00', bpm: '112–118 BPM' },
+  4: { name: 'ZONE 4', label: 'Deep Night',   time: '01:00–08:00', bpm: '90–100 BPM'  },
 }
 
 const ZONES = {
@@ -877,8 +944,9 @@ const load = (i) => {
   const t = queue[i]
   audio.src = t.file
   audio.load()
-  document.getElementById('npTitle').textContent = t.title
-  document.getElementById('npMeta').textContent = 'Instrumental · ' + t.bpm
+  // BPMをファイル名から抽出。取得できない場合はデータのbpmフィールドから数値のみ取り出す
+  const bpmMatch = t.file.match(/_(\d+)bpm/i)
+  document.getElementById('npBpm').textContent = bpmMatch ? bpmMatch[1] : (t.bpm || '').replace(/\D/g, '')
   document.getElementById('progFill').style.width = '0%'
   document.getElementById('timeEl').textContent = '0:00'
   document.getElementById('timeDu').textContent = '—'
