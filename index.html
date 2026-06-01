@@ -2,127 +2,639 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>VEGEKUL MUSIC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
-  --vk-green: #2d7a3a;
-  --vk-green-light: #e8f4eb;
-  --vk-text: #1a1a1a;
-  --vk-sub: #5a5a5a;
-  --vk-hint: #9a9a9a;
-  --vk-border: rgba(0,0,0,0.1);
+  --leaf:        #2f7d3f;
+  --deep:        #1f5a2c;
+  --sprout:      #a8d49a;
+  --cream:       #f4f1e8;
+  --ink:         #1d241c;
+  --carrot:      #e3742a;
+  --vinyl-dark:  #181d18;
+  --ff-serif:    'Fraunces', Georgia, serif;
+  --ff-sans:     'Zen Kaku Gothic New', sans-serif;
 }
-body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif; background: #f5f5f5; display: flex; justify-content: center; padding: 20px; min-height: 100vh; }
-.app { background: white; max-width: 400px; width: 100%; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
-.topbar { background: var(--vk-green); padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
-.topbar-left { display: flex; align-items: center; gap: 10px; }
-.topbar-icon { width: 32px; height: 32px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-.topbar-name { font-size: 14px; font-weight: 700; color: white; letter-spacing: 0.05em; }
-.topbar-sub { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 1px; }
-.track-count { font-size: 12px; color: rgba(255,255,255,0.7); }
 
-/* Zone selector */
-.zone-bar { display: flex; gap: 8px; padding: 12px 16px; background: var(--vk-green-light); border-bottom: 1px solid var(--vk-border); }
-.zone-btn { flex: 1; padding: 8px 4px; border-radius: 8px; border: 2px solid var(--vk-green); background: white; color: var(--vk-green); font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.15s, color 0.15s; line-height: 1.3; }
-.zone-btn.active { background: var(--vk-green); color: white; }
-.zone-btn:hover:not(.active) { background: var(--vk-green-light); }
+html, body {
+  height: 100%;
+  background: var(--cream);
+  font-family: var(--ff-sans);
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
 
-.now-playing { margin: 14px 16px 0; background: var(--vk-green); border-radius: 14px; padding: 18px; color: white; }
-.np-label { font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; margin-bottom: 8px; }
-.np-title { font-size: 15px; font-weight: 700; color: white; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.np-meta { font-size: 11px; color: rgba(255,255,255,0.65); margin-bottom: 16px; }
-.prog-bar { width: 100%; height: 4px; background: rgba(255,255,255,0.25); border-radius: 2px; cursor: pointer; margin-bottom: 6px; }
-.prog-fill { height: 100%; background: white; border-radius: 2px; width: 0%; transition: width 0.5s linear; }
-.time-row { display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
-.controls { display: flex; align-items: center; justify-content: center; gap: 24px; }
-.ctrl-btn { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.8); display: flex; align-items: center; justify-content: center; padding: 4px; }
-.ctrl-btn:hover { color: white; }
-.play-btn { width: 48px; height: 48px; border-radius: 50%; background: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--vk-green); transition: transform 0.1s; }
-.play-btn:active { transform: scale(0.94); }
-.options-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--vk-border); }
-.opt-label { font-size: 13px; color: var(--vk-sub); }
-.toggle { width: 40px; height: 22px; border-radius: 11px; background: #ccc; border: none; cursor: pointer; position: relative; transition: background 0.2s; }
-.toggle.on { background: var(--vk-green); }
-.toggle-thumb { width: 18px; height: 18px; border-radius: 50%; background: white; position: absolute; top: 2px; left: 2px; transition: left 0.2s; }
-.toggle.on .toggle-thumb { left: 20px; }
-.queue-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 8px; }
-.queue-title { font-size: 11px; color: var(--vk-hint); font-weight: 700; letter-spacing: 0.1em; }
-.queue-list { padding: 0 16px 24px; max-height: 400px; overflow-y: auto; }
-.queue-item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--vk-border); cursor: pointer; gap: 10px; }
-.queue-item:last-child { border-bottom: none; }
-.queue-item:hover { opacity: 0.75; }
-.queue-item.active .qi-title { color: var(--vk-green); font-weight: 700; }
-.queue-item.active .qi-num { color: var(--vk-green); }
-.qi-num { font-size: 12px; color: var(--vk-hint); width: 20px; text-align: center; flex-shrink: 0; }
-.qi-info { flex: 1; min-width: 0; }
-.qi-title { font-size: 13px; color: var(--vk-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.qi-bpm { font-size: 11px; color: var(--vk-hint); margin-top: 2px; }
+.app {
+  max-width: 430px;
+  width: 100%;
+  min-height: 100dvh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ====== Top bar ====== */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 10px;
+  flex-shrink: 0;
+}
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.zone-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  border-radius: 100px;
+  padding: 8px 14px 8px 11px;
+  cursor: pointer;
+  font-family: var(--ff-sans);
+  transition: background 0.15s;
+  -webkit-appearance: none;
+}
+.zone-pill:active { background: #2e3a2d; }
+
+.pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--sprout);
+  flex-shrink: 0;
+}
+.pill-text {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.mode-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(29,36,28,0.38);
+  letter-spacing: 0.08em;
+  padding: 3px 7px;
+  border: 1px solid rgba(29,36,28,0.14);
+  border-radius: 100px;
+  user-select: none;
+}
+
+.clock {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(29,36,28,0.4);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+/* ====== Player main ====== */
+.player-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px 40px;
+}
+
+/* ====== Vinyl ====== */
+.vinyl-wrap {
+  position: relative;
+  width: min(272px, 70vw);
+  height: min(272px, 70vw);
+  margin-bottom: 36px;
+  flex-shrink: 0;
+}
+
+.vinyl {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--vinyl-dark);
+  background-image: repeating-radial-gradient(
+    circle at center,
+    transparent 0px,
+    transparent 8px,
+    rgba(255,255,255,0.022) 8px,
+    rgba(255,255,255,0.022) 9px
+  );
+  position: relative;
+  box-shadow:
+    0 0 0 1.5px rgba(255,255,255,0.05),
+    0 16px 56px rgba(0,0,0,0.38),
+    0 4px 16px rgba(0,0,0,0.22);
+  animation: vinyl-spin 8s linear infinite;
+  animation-play-state: paused;
+}
+.vinyl.playing { animation-play-state: running; }
+
+@keyframes vinyl-spin { to { transform: rotate(360deg); } }
+
+/* 外周リング */
+.vinyl::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.035);
+  pointer-events: none;
+}
+
+/* ====== レーベル（センター円） ====== */
+.vinyl-label {
+  position: absolute;
+  width: 42%;
+  height: 42%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 38%, #a8d49a, #2f7d3f 55%, #1f5a2c);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.45);
+  background-size: cover;
+  background-position: center;
+}
+.vinyl-label.has-art .label-text { display: none; }
+
+.label-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+  padding: 6px;
+  pointer-events: none;
+}
+.label-name {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: clamp(7px, 2vw, 10px);
+  color: var(--cream);
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.label-sub {
+  font-size: clamp(5px, 1.5vw, 7px);
+  color: rgba(244,241,232,0.6);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+/* スピンドル */
+.vinyl-spindle {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--vinyl-dark);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 1.5px rgba(255,255,255,0.12), 0 1px 3px rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+/* ====== トラック情報 ====== */
+.track-info {
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 300px;
+}
+.track-title {
+  font-family: var(--ff-serif);
+  font-size: clamp(21px, 5.5vw, 27px);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+.track-sub {
+  font-size: 12px;
+  color: rgba(29,36,28,0.42);
+  letter-spacing: 0.07em;
+  font-weight: 500;
+}
+
+/* ====== プログレス ====== */
+.progress-section {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 38px;
+}
+.prog-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(29,36,28,0.1);
+  border-radius: 2px;
+  cursor: pointer;
+  margin-bottom: 9px;
+  position: relative;
+}
+.prog-fill {
+  height: 100%;
+  background: var(--leaf);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.5s linear;
+  position: relative;
+}
+.prog-fill::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--leaf);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.prog-bar:hover .prog-fill::after { opacity: 1; }
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: rgba(29,36,28,0.38);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ====== コントロール ====== */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.ctrl-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(29,36,28,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 50%;
+  transition: color 0.15s, background 0.15s;
+  -webkit-appearance: none;
+}
+.ctrl-btn:active {
+  color: var(--ink);
+  background: rgba(29,36,28,0.07);
+}
+.play-btn {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  transition: transform 0.1s, background 0.15s;
+  -webkit-appearance: none;
+  box-shadow: 0 6px 24px rgba(29,36,28,0.22);
+  flex-shrink: 0;
+}
+.play-btn:active { transform: scale(0.92); }
+
+/* ====== シートオーバーレイ ====== */
+.sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(29,36,28,0.42);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 10;
+}
+.sheet-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ====== ゾーンシート ====== */
+.zone-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: min(430px, 100vw);
+  background: var(--cream);
+  border-radius: 20px 20px 0 0;
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+  transition: transform 0.36s cubic-bezier(0.32, 0.72, 0, 1);
+  z-index: 11;
+  max-height: 82dvh;
+  overflow-y: auto;
+}
+.zone-sheet.open { transform: translateX(-50%) translateY(0); }
+
+.sheet-handle-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 2px;
+}
+.sheet-handle {
+  width: 36px;
+  height: 4px;
+  background: rgba(29,36,28,0.14);
+  border-radius: 2px;
+}
+
+.sheet-inner {
+  padding: 8px 20px 4px;
+}
+
+.sheet-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.sheet-title {
+  font-family: var(--ff-serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.auto-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.auto-label {
+  font-size: 12px;
+  color: rgba(29,36,28,0.5);
+  font-weight: 500;
+}
+.toggle {
+  width: 44px;
+  height: 25px;
+  border-radius: 13px;
+  background: rgba(29,36,28,0.14);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+  flex-shrink: 0;
+  -webkit-appearance: none;
+}
+.toggle.on { background: var(--leaf); }
+.toggle-thumb {
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.toggle.on .toggle-thumb { left: 21px; }
+
+/* ゾーン行 */
+.zone-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 8px;
+  border-bottom: 1px solid rgba(29,36,28,0.06);
+  cursor: pointer;
+  gap: 14px;
+  border-radius: 8px;
+  margin: 0 -8px;
+  transition: background 0.12s;
+}
+.zone-row:last-child { border-bottom: none; }
+.zone-row:active { background: rgba(29,36,28,0.05); }
+
+.zone-indicator {
+  width: 3px;
+  height: 38px;
+  border-radius: 2px;
+  background: rgba(29,36,28,0.1);
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.zone-row.active .zone-indicator { background: var(--leaf); }
+
+.zone-row-info { flex: 1; min-width: 0; }
+.zone-row-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 3px;
+  transition: color 0.15s;
+}
+.zone-row.active .zone-row-name { color: var(--leaf); }
+.zone-row-time {
+  font-size: 11px;
+  color: rgba(29,36,28,0.42);
+}
+.zone-row-bpm {
+  font-size: 11px;
+  color: rgba(29,36,28,0.35);
+  text-align: right;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+.zone-check {
+  opacity: 0;
+  flex-shrink: 0;
+  transition: opacity 0.15s;
+  color: var(--leaf);
+}
+.zone-row.active .zone-check { opacity: 1; }
+
+.sheet-footer {
+  padding: 16px 0 4px;
+  display: flex;
+  justify-content: center;
+}
+.csv-btn {
+  font-size: 11px;
+  color: rgba(29,36,28,0.32);
+  background: none;
+  border: 1px solid rgba(29,36,28,0.1);
+  border-radius: 8px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-family: var(--ff-sans);
+  transition: color 0.15s;
+  -webkit-appearance: none;
+}
+.csv-btn:active { color: var(--ink); }
 </style>
 </head>
 <body>
 <div class="app">
+  <!-- 上部バー -->
   <div class="topbar">
     <div class="topbar-left">
-      <div class="topbar-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2d7a3a" stroke-width="2.5">
-          <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
-        </svg>
-      </div>
-      <div>
-        <div class="topbar-name">VEGEKUL MUSIC</div>
-        <div class="topbar-sub">倉庫作業用プレイヤー</div>
-      </div>
+      <button class="zone-pill" id="zonePill" onclick="openSheet()">
+        <span class="pill-dot"></span>
+        <span class="pill-text" id="pillText">Zone 1 · Deep Work</span>
+      </button>
+      <span class="mode-badge" id="modeBadge">自動</span>
     </div>
-    <span class="track-count" id="trackCount"></span>
+    <span class="clock" id="clockEl">00:00</span>
   </div>
 
-  <div class="zone-bar">
-    <button class="zone-btn active" id="zoneBtn1" onclick="switchZone(1)">Zone 1<br>08:00-13:00<br>(70〜90 BPM)</button>
-    <button class="zone-btn" id="zoneBtn2" onclick="switchZone(2)">Zone 2<br>13:00-19:00<br>(100〜112 BPM)</button>
-    <button class="zone-btn" id="zoneBtn3" onclick="switchZone(3)">Zone 3<br>19:00-01:00<br>(112〜118 BPM)</button>
-    <button class="zone-btn" id="zoneBtn4" onclick="switchZone(4)">Zone 4<br>01:00-08:00<br>(90〜100 BPM)</button>
-  </div>
+  <!-- プレイヤー本体 -->
+  <div class="player-main">
+    <!-- ビニールレコード -->
+    <div class="vinyl-wrap">
+      <div class="vinyl" id="vinyl">
+        <div class="vinyl-label" id="vinylLabel">
+          <div class="label-text">
+            <div class="label-name">VEGEKUL MUSIC</div>
+            <div class="label-sub">空 · KU SOUND</div>
+          </div>
+        </div>
+        <div class="vinyl-spindle"></div>
+      </div>
+    </div>
 
-  <div class="now-playing">
-    <div class="np-label">NOW PLAYING</div>
-    <div class="np-title" id="npTitle">タップして再生</div>
-    <div class="np-meta" id="npMeta">—</div>
-    <div class="prog-bar" id="progBar" onclick="seekTo(event)">
-      <div class="prog-fill" id="progFill"></div>
+    <!-- トラック情報 -->
+    <div class="track-info">
+      <div class="track-title" id="npTitle">—</div>
+      <div class="track-sub" id="npMeta">Instrumental</div>
     </div>
-    <div class="time-row">
-      <span id="timeEl">0:00</span>
-      <span id="timeDu">—</span>
+
+    <!-- プログレス -->
+    <div class="progress-section">
+      <div class="prog-bar" id="progBar" onclick="seekTo(event)">
+        <div class="prog-fill" id="progFill"></div>
+      </div>
+      <div class="time-row">
+        <span id="timeEl">0:00</span>
+        <span id="timeDu">—</span>
+      </div>
     </div>
+
+    <!-- コントロール -->
     <div class="controls">
-      <button class="ctrl-btn" onclick="prevTrack()">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/></svg>
+      <button class="ctrl-btn" onclick="prevTrack()" aria-label="前の曲">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/>
+        </svg>
       </button>
-      <button class="play-btn" id="playBtn" onclick="togglePlay()">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <button class="play-btn" id="playBtn" onclick="togglePlay()" aria-label="再生/停止">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       </button>
-      <button class="ctrl-btn" onclick="nextTrack()">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+      <button class="ctrl-btn" onclick="nextTrack()" aria-label="次の曲">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/>
+        </svg>
       </button>
     </div>
   </div>
-
-  <div class="options-row">
-    <span class="opt-label">シャッフル再生</span>
-    <button class="toggle on" id="shuffleBtn" onclick="toggleShuffle()">
-      <div class="toggle-thumb"></div>
-    </button>
-  </div>
-
-  <div class="queue-header">
-    <span class="queue-title">QUEUE</span>
-    <span class="queue-count" id="queueCount"></span>
-  </div>
-  <div class="queue-list" id="queueList"></div>
 </div>
+
+<!-- シートオーバーレイ -->
+<div class="sheet-overlay" id="sheetOverlay" onclick="closeSheet()"></div>
+
+<!-- ゾーン選択シート -->
+<div class="zone-sheet" id="zoneSheet">
+  <div class="sheet-handle-wrap"><div class="sheet-handle"></div></div>
+  <div class="sheet-inner">
+    <div class="sheet-header-row">
+      <span class="sheet-title">Zone</span>
+      <div class="auto-row">
+        <span class="auto-label">時間帯で自動</span>
+        <button class="toggle" id="autoToggle" onclick="toggleAutoZone()">
+          <div class="toggle-thumb"></div>
+        </button>
+      </div>
+    </div>
+    <div id="zoneList"></div>
+    <div class="sheet-footer">
+      <button class="csv-btn" onclick="exportCSV()">ログをCSVで書き出す</button>
+    </div>
+  </div>
+</div>
+
 <script>
+// === 再生ログ ===
+const LOG_KEY = 'ku_play_log'
+const AUTO_KEY = 'ku_auto_zone'
+const MAX_LOG_ENTRIES = 10000
+let trackEndedNaturally = false
+
+const logEvent = (type, extra = {}) => {
+  const now = new Date()
+  const track = queue[idx] || {}
+  const entry = { type, ts: now.toISOString(), hour: now.getHours(), zone: currentZone, title: track.title || '', ...extra }
+  try {
+    const logs = JSON.parse(localStorage.getItem(LOG_KEY) || '[]')
+    logs.push(entry)
+    if (logs.length > MAX_LOG_ENTRIES) logs.splice(0, logs.length - MAX_LOG_ENTRIES)
+    localStorage.setItem(LOG_KEY, JSON.stringify(logs))
+  } catch (_) {}
+}
+
+const exportCSV = () => {
+  let logs
+  try { logs = JSON.parse(localStorage.getItem(LOG_KEY) || '[]') } catch (_) { logs = [] }
+  if (!logs.length) { alert('ログがありません'); return }
+  const cols = ['type', 'ts', 'hour', 'zone', 'title', 'elapsed', 'duration', 'fromZone', 'toZone']
+  const rows = [cols.join(',')]
+  logs.forEach(e => rows.push(cols.map(c => e[c] ?? '').join(',')))
+  const blob = new Blob(['﻿' + rows.join('\n')], { type: 'text/csv;charset=utf-8;' })
+  const a = document.createElement('a')
+  a.href = URL.createObjectURL(blob)
+  a.download = 'ku_play_log_' + new Date().toISOString().slice(0, 10) + '.csv'
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+}
+
+// === ゾーン定義 ===
+const ZONE_META = {
+  1: { name: 'Zone 1', label: 'Deep Work',   time: '08:00–13:00', bpm: '70–90 BPM'   },
+  2: { name: 'Zone 2', label: 'Active Flow',  time: '13:00–19:00', bpm: '100–112 BPM' },
+  3: { name: 'Zone 3', label: 'Night Drive',  time: '19:00–01:00', bpm: '112–118 BPM' },
+  4: { name: 'Zone 4', label: 'Deep Night',   time: '01:00–08:00', bpm: '90–100 BPM'  },
+}
+
 const ZONES = {
   1: [
     { title: 'KU-Z1-001', file: 'zone1/KU-Z1-001_104bpm.mp3', bpm: '104 BPM' },
@@ -137,15 +649,15 @@ const ZONES = {
     { title: 'KU-Z1-010', file: 'zone1/KU-Z1-010_90bpm.mp3',  bpm: '90 BPM'  },
   ],
   2: [
-    { title: 'KU-Z2-001', file: 'zone2/KU-Z2-001_112bpm.mp3', bpm: '112 BPM' },
-    { title: 'KU-Z2-002', file: 'zone2/KU-Z2-002_114bpm.mp3', bpm: '114 BPM' },
-    { title: 'KU-Z2-003', file: 'zone2/KU-Z2-003_116bpm.mp3', bpm: '116 BPM' },
-    { title: 'KU-Z2-004', file: 'zone2/KU-Z2-004_113bpm.mp3', bpm: '113 BPM' },
-    { title: 'KU-Z2-005', file: 'zone2/KU-Z2-005_118bpm.mp3', bpm: '118 BPM' },
-    { title: 'KU-Z2-006', file: 'zone2/KU-Z2-006_102bpm.mp3', bpm: '102 BPM' },
-    { title: 'KU-Z2-007', file: 'zone2/KU-Z2-007_106bpm.mp3', bpm: '106 BPM' },
-    { title: 'KU-Z2-008', file: 'zone2/KU-Z2-008_109bpm.mp3', bpm: '109 BPM' },
-    { title: 'KU-Z2-009', file: 'zone2/KU-Z2-009_104bpm.mp3', bpm: '104 BPM' },
+    { title: 'KU-Z2-001',   file: 'zone2/KU-Z2-001_112bpm.mp3',       bpm: '112 BPM' },
+    { title: 'KU-Z2-002',   file: 'zone2/KU-Z2-002_114bpm.mp3',       bpm: '114 BPM' },
+    { title: 'KU-Z2-003',   file: 'zone2/KU-Z2-003_116bpm.mp3',       bpm: '116 BPM' },
+    { title: 'KU-Z2-004',   file: 'zone2/KU-Z2-004_113bpm.mp3',       bpm: '113 BPM' },
+    { title: 'KU-Z2-005',   file: 'zone2/KU-Z2-005_118bpm.mp3',       bpm: '118 BPM' },
+    { title: 'KU-Z2-006',   file: 'zone2/KU-Z2-006_102bpm.mp3',       bpm: '102 BPM' },
+    { title: 'KU-Z2-007',   file: 'zone2/KU-Z2-007_106bpm.mp3',       bpm: '106 BPM' },
+    { title: 'KU-Z2-008',   file: 'zone2/KU-Z2-008_109bpm.mp3',       bpm: '109 BPM' },
+    { title: 'KU-Z2-009',   file: 'zone2/KU-Z2-009_104bpm.mp3',       bpm: '104 BPM' },
     { title: 'KU-Z2-010',   file: 'zone2/KU-Z2-010_111bpm.mp3',       bpm: '111 BPM' },
     { title: 'KU-Z2-011-A', file: 'zone2/KU-Z2-011_104bpm_A.mp3',     bpm: '104 BPM' },
     { title: 'KU-Z2-011-B', file: 'zone2/KU-Z2-011_104bpm_B.mp3',     bpm: '104 BPM' },
@@ -222,101 +734,224 @@ const ZONES = {
     { title: 'KU-Z4-009', file: 'zone4/KU-Z4-009_91bpm.mp3',  bpm: '91 BPM'  },
     { title: 'KU-Z4-010', file: 'zone4/KU-Z4-010_99bpm.mp3',  bpm: '99 BPM'  },
   ],
-};
-
-let currentZone = 1, queue = [], idx = 0, shuffle = true, playing = false;
-const audio = new Audio();
-
-audio.addEventListener('timeupdate', () => {
-  if (!audio.duration) return;
-  document.getElementById('progFill').style.width = Math.round((audio.currentTime / audio.duration) * 100) + '%';
-  document.getElementById('timeEl').textContent = fmt(Math.floor(audio.currentTime));
-  document.getElementById('timeDu').textContent = fmt(Math.floor(audio.duration));
-});
-audio.addEventListener('ended', nextTrack);
-
-function buildQueue(zone) {
-  let t = ZONES[zone].map((tr, i) => ({ ...tr, num: i + 1 }));
-  if (shuffle) for (let i = t.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [t[i], t[j]] = [t[j], t[i]]; }
-  return t;
 }
 
-function switchZone(zone) {
-  currentZone = zone;
-  [1, 2, 3, 4].forEach(z => document.getElementById('zoneBtn' + z).classList.toggle('active', z === zone));
-  queue = buildQueue(zone);
-  idx = 0;
-  const wasPlaying = playing;
-  playing = false;
-  audio.pause();
-  load(0);
-  if (wasPlaying) { audio.play().then(() => { playing = true; setIcon(true); }).catch(() => {}); }
+// === 時間帯からゾーンを判定 ===
+const getAutoZone = () => {
+  const h = new Date().getHours()
+  if (h >= 8 && h < 13) return 1
+  if (h >= 13 && h < 19) return 2
+  if (h >= 19 || h < 1)  return 3
+  return 4
 }
 
-function load(i) {
-  const t = queue[i];
-  audio.src = t.file;
-  audio.load();
-  document.getElementById('npTitle').textContent = t.title;
-  document.getElementById('npMeta').textContent = 'Zone ' + currentZone + '  ·  ' + t.bpm + '  ·  ' + (i + 1) + ' / ' + queue.length;
-  document.getElementById('progFill').style.width = '0%';
-  document.getElementById('timeEl').textContent = '0:00';
-  document.getElementById('timeDu').textContent = '—';
-  document.getElementById('trackCount').textContent = ZONES[currentZone].length + '曲';
-  renderQueue();
+// === 状態 ===
+const savedAuto = localStorage.getItem(AUTO_KEY)
+let autoZone = savedAuto === null ? true : savedAuto === 'true'
+let currentZone = autoZone ? getAutoZone() : 1
+let queue = [], idx = 0, shuffle = true, playing = false
+const audio = new Audio()
+
+// === 時計 ===
+const updateClock = () => {
+  const n = new Date()
+  document.getElementById('clockEl').textContent =
+    String(n.getHours()).padStart(2, '0') + ':' + String(n.getMinutes()).padStart(2, '0')
+}
+setInterval(updateClock, 1000)
+updateClock()
+
+// === ピル・シート表示更新 ===
+const updatePill = () => {
+  const m = ZONE_META[currentZone]
+  document.getElementById('pillText').textContent = m.name + ' · ' + m.label
+  document.getElementById('modeBadge').textContent = autoZone ? '自動' : '手動'
+  document.getElementById('autoToggle').classList.toggle('on', autoZone)
 }
 
-function togglePlay() {
-  if (playing) { audio.pause(); playing = false; setIcon(false); }
-  else { audio.play().then(() => { playing = true; setIcon(true); }).catch(() => {}); }
-}
-
-function nextTrack() { idx = (idx + 1) % queue.length; load(idx); if (playing) audio.play().catch(() => {}); }
-function prevTrack() {
-  if (audio.currentTime > 3) { audio.currentTime = 0; return; }
-  idx = (idx - 1 + queue.length) % queue.length; load(idx); if (playing) audio.play().catch(() => {});
-}
-
-function seekTo(e) {
-  if (!audio.duration) return;
-  const r = e.currentTarget.getBoundingClientRect();
-  audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
-}
-
-function toggleShuffle() {
-  shuffle = !shuffle;
-  document.getElementById('shuffleBtn').classList.toggle('on', shuffle);
-  const cur = queue[idx].file;
-  queue = buildQueue(currentZone);
-  idx = queue.findIndex(t => t.file === cur);
-  renderQueue();
-}
-
-function jumpTo(i) { idx = i; load(idx); playing = true; audio.play().then(() => setIcon(true)).catch(() => {}); }
-
-function setIcon(p) {
-  document.getElementById('playBtn').innerHTML = p
-    ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>'
-    : '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
-}
-
-function renderQueue() {
-  document.getElementById('queueCount').textContent = queue.length + '曲';
-  document.getElementById('queueList').innerHTML = queue.map((t, i) => `
-    <div class="queue-item ${i === idx ? 'active' : ''}" onclick="jumpTo(${i})">
-      <span class="qi-num">${i === idx ? '▶' : i + 1}</span>
-      <div class="qi-info">
-        <div class="qi-title">${t.title}</div>
-        <div class="qi-bpm">${t.bpm}</div>
+const renderZoneList = () => {
+  document.getElementById('zoneList').innerHTML = Object.entries(ZONE_META).map(([z, m]) => `
+    <div class="zone-row ${parseInt(z) === currentZone ? 'active' : ''}" onclick="selectZone(${z})">
+      <div class="zone-indicator"></div>
+      <div class="zone-row-info">
+        <div class="zone-row-name">${m.name} · ${m.label}</div>
+        <div class="zone-row-time">${m.time}</div>
       </div>
+      <div class="zone-row-bpm">${m.bpm}</div>
+      <svg class="zone-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
     </div>
-  `).join('');
+  `).join('')
 }
 
-function fmt(s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+// === シート開閉 ===
+const openSheet = () => {
+  renderZoneList()
+  document.getElementById('sheetOverlay').classList.add('open')
+  document.getElementById('zoneSheet').classList.add('open')
+}
+const closeSheet = () => {
+  document.getElementById('sheetOverlay').classList.remove('open')
+  document.getElementById('zoneSheet').classList.remove('open')
+}
 
-queue = buildQueue(currentZone);
-load(0);
+const selectZone = (z) => {
+  autoZone = false
+  localStorage.setItem(AUTO_KEY, 'false')
+  switchZone(z)
+  closeSheet()
+}
+
+const toggleAutoZone = () => {
+  autoZone = !autoZone
+  localStorage.setItem(AUTO_KEY, String(autoZone))
+  if (autoZone) {
+    const z = getAutoZone()
+    if (z !== currentZone) switchZone(z)
+  }
+  updatePill()
+  renderZoneList()
+}
+
+// === アルバムアート ===
+let currentArtUrl = null
+
+const loadAlbumArt = (filePath) => {
+  if (currentArtUrl) { URL.revokeObjectURL(currentArtUrl); currentArtUrl = null }
+  const label = document.getElementById('vinylLabel')
+  label.classList.remove('has-art')
+  label.style.backgroundImage = ''
+  if (typeof jsmediatags === 'undefined') return
+  try {
+    jsmediatags.read(filePath, {
+      onSuccess: (tag) => {
+        const pic = tag.tags && tag.tags.picture
+        if (!pic || !pic.data) return
+        const blob = new Blob([new Uint8Array(pic.data)], { type: pic.format || 'image/jpeg' })
+        currentArtUrl = URL.createObjectURL(blob)
+        label.style.backgroundImage = `url(${currentArtUrl})`
+        label.classList.add('has-art')
+      },
+      onError: () => {},
+    })
+  } catch (_) {}
+}
+
+// === audio イベント ===
+audio.addEventListener('timeupdate', () => {
+  if (!audio.duration) return
+  document.getElementById('progFill').style.width = Math.round((audio.currentTime / audio.duration) * 100) + '%'
+  document.getElementById('timeEl').textContent = fmt(Math.floor(audio.currentTime))
+  document.getElementById('timeDu').textContent = fmt(Math.floor(audio.duration))
+})
+audio.addEventListener('ended', () => {
+  trackEndedNaturally = true
+  logEvent('track_complete', { elapsed: Math.floor(audio.duration || 0), duration: Math.floor(audio.duration || 0) })
+  nextTrack()
+})
+
+// === キュー ===
+const buildQueue = (zone) => {
+  let t = ZONES[zone].map((tr, i) => ({ ...tr, num: i + 1 }))
+  if (shuffle) for (let i = t.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [t[i], t[j]] = [t[j], t[i]] }
+  return t
+}
+
+const switchZone = (zone) => {
+  logEvent('zone_switch', { fromZone: currentZone, toZone: zone })
+  if (playing) logEvent('skip', { elapsed: Math.floor(audio.currentTime), duration: Math.floor(audio.duration || 0) })
+  currentZone = zone
+  queue = buildQueue(zone)
+  idx = 0
+  const wasPlaying = playing
+  playing = false
+  audio.pause()
+  load(0)
+  if (wasPlaying) { audio.play().then(() => { playing = true; setIcon(true); logEvent('play_start') }).catch(() => {}) }
+  updatePill()
+  renderZoneList()
+}
+
+const load = (i) => {
+  const t = queue[i]
+  audio.src = t.file
+  audio.load()
+  document.getElementById('npTitle').textContent = t.title
+  document.getElementById('npMeta').textContent = 'Instrumental · ' + t.bpm
+  document.getElementById('progFill').style.width = '0%'
+  document.getElementById('timeEl').textContent = '0:00'
+  document.getElementById('timeDu').textContent = '—'
+  loadAlbumArt(t.file)
+}
+
+const togglePlay = () => {
+  if (playing) {
+    audio.pause()
+    playing = false
+    setIcon(false)
+    logEvent('play_stop', { elapsed: Math.floor(audio.currentTime), duration: Math.floor(audio.duration || 0) })
+  } else {
+    audio.play().then(() => { playing = true; setIcon(true); logEvent('play_start') }).catch(() => {})
+  }
+}
+
+const nextTrack = () => {
+  if (!trackEndedNaturally && (playing || audio.currentTime > 0)) {
+    logEvent('skip', { elapsed: Math.floor(audio.currentTime), duration: Math.floor(audio.duration || 0) })
+  }
+  trackEndedNaturally = false
+  idx = (idx + 1) % queue.length
+  load(idx)
+  if (playing) audio.play().then(() => logEvent('play_start')).catch(() => {})
+}
+
+const prevTrack = () => {
+  if (audio.currentTime > 3) { audio.currentTime = 0; return }
+  if (playing || audio.currentTime > 0) {
+    logEvent('skip', { elapsed: Math.floor(audio.currentTime), duration: Math.floor(audio.duration || 0) })
+  }
+  idx = (idx - 1 + queue.length) % queue.length
+  load(idx)
+  if (playing) audio.play().then(() => logEvent('play_start')).catch(() => {})
+}
+
+const seekTo = (e) => {
+  if (!audio.duration) return
+  const r = e.currentTarget.getBoundingClientRect()
+  audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration
+}
+
+const toggleShuffle = () => {
+  shuffle = !shuffle
+  const cur = queue[idx].file
+  queue = buildQueue(currentZone)
+  idx = queue.findIndex(t => t.file === cur)
+}
+
+const jumpTo = (i) => {
+  if (i !== idx && (playing || audio.currentTime > 0)) {
+    logEvent('skip', { elapsed: Math.floor(audio.currentTime), duration: Math.floor(audio.duration || 0) })
+  }
+  idx = i
+  load(idx)
+  playing = true
+  audio.play().then(() => { logEvent('play_start'); setIcon(true) }).catch(() => {})
+}
+
+const setIcon = (p) => {
+  document.getElementById('playBtn').innerHTML = p
+    ? '<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>'
+    : '<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>'
+  document.getElementById('vinyl').classList.toggle('playing', p)
+}
+
+const fmt = (s) => Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0')
+
+// === 初期化 ===
+queue = buildQueue(currentZone)
+load(0)
+updatePill()
 </script>
 </body>
 </html>
