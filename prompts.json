@@ -1,0 +1,655 @@
+{
+  "tracks": [
+    {
+      "id": "KU-Z3-001_112bpm",
+      "zone": 3,
+      "seq": 1,
+      "bpm": 112,
+      "title": "KU-Z3-001_112bpm",
+      "prompt": "jazz funk lofi, neo soul lofi, instrumental, no vocals, 112bpm, background work music, syncopated jazz groove, gentle vinyl noise, vibraphone, introspective mood, soulful jazz samples",
+      "files": [
+        "KU-Z3-001_112bpm-A.mp3",
+        "KU-Z3-001_112bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "jazz funk lofi",
+          "neo soul lofi"
+        ],
+        "drum": "syncopated jazz groove",
+        "texture": "gentle vinyl noise",
+        "melody": "vibraphone",
+        "mood": "introspective mood",
+        "soul": "soulful jazz samples"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-002_112bpm",
+      "zone": 3,
+      "seq": 2,
+      "bpm": 112,
+      "title": "KU-Z3-002_112bpm",
+      "prompt": "latin lofi, lofi hip hop, instrumental, no vocals, 112bpm, background work music, half-time feel, soft room ambience, muted trumpet, jazz chord extensions, laid-back timing, soul jazz warmth",
+      "files": [
+        "KU-Z3-002_112bpm-A.mp3",
+        "KU-Z3-002_112bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "latin lofi",
+          "lofi hip hop"
+        ],
+        "drum": "half-time feel",
+        "texture": "soft room ambience",
+        "melody": "muted trumpet",
+        "mood": "laid-back timing",
+        "soul": "soul jazz warmth"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-003_113bpm",
+      "zone": 3,
+      "seq": 3,
+      "bpm": 113,
+      "title": "KU-Z3-003_113bpm",
+      "prompt": "lofi electronic fusion, lofi hip hop, instrumental, no vocals, 113bpm, background work music, boom bap drums, mellow background haze, rhodes piano, nostalgic late-night calm, soul sample texture",
+      "files": [
+        "KU-Z3-003_113bpm-A.mp3",
+        "KU-Z3-003_113bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "lofi electronic fusion",
+          "lofi hip hop"
+        ],
+        "drum": "boom bap drums",
+        "texture": "mellow background haze",
+        "melody": "rhodes piano",
+        "mood": "nostalgic late-night calm",
+        "soul": "soul sample texture"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-004_113bpm",
+      "zone": 3,
+      "seq": 4,
+      "bpm": 113,
+      "title": "KU-Z3-004_113bpm",
+      "prompt": "broken beat soul, lofi hip hop, instrumental, no vocals, 113bpm, background work music, jazz brush snare, lo-fi cassette warmth, mellow flute, dusty jazz sensibility, raw soulful warmth",
+      "files": [
+        "KU-Z3-004_113bpm-A.mp3",
+        "KU-Z3-004_113bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "broken beat soul",
+          "lofi hip hop"
+        ],
+        "drum": "jazz brush snare",
+        "texture": "lo-fi cassette warmth",
+        "melody": "mellow flute",
+        "mood": "dusty jazz sensibility",
+        "soul": "raw soulful warmth"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-005_113bpm",
+      "zone": 3,
+      "seq": 5,
+      "bpm": 113,
+      "title": "KU-Z3-005_113bpm",
+      "prompt": "jazz funk lofi, latin lofi, instrumental, no vocals, 113bpm, background work music, jazzy rim shot pattern, subtle field recording texture, jazzy electric guitar, warm jazzy atmosphere, loose swing feel",
+      "files": [
+        "KU-Z3-005_113bpm-A.mp3",
+        "KU-Z3-005_113bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "jazz funk lofi",
+          "latin lofi"
+        ],
+        "drum": "jazzy rim shot pattern",
+        "texture": "subtle field recording texture",
+        "melody": "jazzy electric guitar",
+        "mood": "warm jazzy atmosphere",
+        "soul": "loose swing feel"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-006_113bpm",
+      "zone": 3,
+      "seq": 6,
+      "bpm": 113,
+      "title": "KU-Z3-006_113bpm",
+      "prompt": "broken beat soul, chill hop, instrumental, no vocals, 113bpm, background work music, hand percussion only, analog tape hiss, electric piano, sus2 chord voicing, melancholic chord progressions, off-grid rhythm feel",
+      "files": [
+        "KU-Z3-006_113bpm-A.mp3",
+        "KU-Z3-006_113bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "broken beat soul",
+          "chill hop"
+        ],
+        "drum": "hand percussion only",
+        "texture": "analog tape hiss",
+        "melody": "electric piano",
+        "mood": "melancholic chord progressions",
+        "soul": "off-grid rhythm feel"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-007_114bpm",
+      "zone": 3,
+      "seq": 7,
+      "bpm": 114,
+      "title": "KU-Z3-007_114bpm",
+      "prompt": "latin lofi, lofi hip hop, instrumental, no vocals, 114bpm, background work music, raw boom bap feel, warm tape saturation, warm saxophone, nostalgic late-night calm, soul jazz warmth",
+      "files": [
+        "KU-Z3-007_114bpm-A.mp3",
+        "KU-Z3-007_114bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "latin lofi",
+          "lofi hip hop"
+        ],
+        "drum": "raw boom bap feel",
+        "texture": "warm tape saturation",
+        "melody": "warm saxophone",
+        "mood": "nostalgic late-night calm",
+        "soul": "soul jazz warmth"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-008_114bpm",
+      "zone": 3,
+      "seq": 8,
+      "bpm": 114,
+      "title": "KU-Z3-008_114bpm",
+      "prompt": "lofi hip hop, neo soul lofi, instrumental, no vocals, 114bpm, background work music, drunk drum feel, dusty sample texture, nylon string guitar, modal chord progression, dusty jazz sensibility, raw soulful warmth",
+      "files": [
+        "KU-Z3-008_114bpm-A.mp3",
+        "KU-Z3-008_114bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "lofi hip hop",
+          "neo soul lofi"
+        ],
+        "drum": "drunk drum feel",
+        "texture": "dusty sample texture",
+        "melody": "nylon string guitar",
+        "mood": "dusty jazz sensibility",
+        "soul": "raw soulful warmth"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-009_114bpm",
+      "zone": 3,
+      "seq": 9,
+      "bpm": 114,
+      "title": "KU-Z3-009_114bpm",
+      "prompt": "afro lofi, latin lofi, instrumental, no vocals, 114bpm, background work music, shuffled hi-hats, vinyl crackle, upright bass lead, tritone substitution feel, introspective mood, loose swing feel",
+      "files": [
+        "KU-Z3-009_114bpm-A.mp3",
+        "KU-Z3-009_114bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "afro lofi",
+          "latin lofi"
+        ],
+        "drum": "shuffled hi-hats",
+        "texture": "vinyl crackle",
+        "melody": "upright bass lead",
+        "mood": "introspective mood",
+        "soul": "loose swing feel"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-010_114bpm",
+      "zone": 3,
+      "seq": 10,
+      "bpm": 114,
+      "title": "KU-Z3-010_114bpm",
+      "prompt": "lofi hip hop, soul groove instrumental, instrumental, no vocals, 114bpm, background work music, lazy hip hop drums, vinyl crackle, soft synth pad, pentatonic melody over jazz chords, laid-back timing, off-grid rhythm feel",
+      "files": [
+        "KU-Z3-010_114bpm-A.mp3",
+        "KU-Z3-010_114bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "lofi hip hop",
+          "soul groove instrumental"
+        ],
+        "drum": "lazy hip hop drums",
+        "texture": "vinyl crackle",
+        "melody": "soft synth pad",
+        "mood": "laid-back timing",
+        "soul": "off-grid rhythm feel"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-011_115bpm",
+      "zone": 3,
+      "seq": 11,
+      "bpm": 115,
+      "title": "KU-Z3-011_115bpm",
+      "prompt": "broken beat soul, lofi electronic fusion, instrumental, no vocals, 115bpm, background work music, loose swing drums, soft room ambience, electric piano, lydian chord color, warm jazzy atmosphere, soul sample texture",
+      "files": [
+        "KU-Z3-011_115bpm-A.mp3",
+        "KU-Z3-011_115bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "broken beat soul",
+          "lofi electronic fusion"
+        ],
+        "drum": "loose swing drums",
+        "texture": "soft room ambience",
+        "melody": "electric piano",
+        "mood": "warm jazzy atmosphere",
+        "soul": "soul sample texture"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-012_115bpm",
+      "zone": 3,
+      "seq": 12,
+      "bpm": 115,
+      "title": "KU-Z3-012_115bpm",
+      "prompt": "lofi hip hop, neo soul lofi, instrumental, no vocals, 115bpm, background work music, off-beat pocket groove, mellow background haze, nylon string guitar, diminished passing chords, melancholic chord progressions, soulful jazz samples",
+      "files": [
+        "KU-Z3-012_115bpm-A.mp3",
+        "KU-Z3-012_115bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "lofi hip hop",
+          "neo soul lofi"
+        ],
+        "drum": "off-beat pocket groove",
+        "texture": "mellow background haze",
+        "melody": "nylon string guitar",
+        "mood": "melancholic chord progressions",
+        "soul": "soulful jazz samples"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-013_115bpm",
+      "zone": 3,
+      "seq": 13,
+      "bpm": 115,
+      "title": "KU-Z3-013_115bpm",
+      "prompt": "neo soul lofi, chill hop, instrumental, no vocals, 115bpm, background work music, wire brushes on snare, gentle vinyl noise, mellow flute, minor 7th chords, dusty jazz sensibility, loose swing feel",
+      "files": [
+        "KU-Z3-013_115bpm-A.mp3",
+        "KU-Z3-013_115bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "neo soul lofi",
+          "chill hop"
+        ],
+        "drum": "wire brushes on snare",
+        "texture": "gentle vinyl noise",
+        "melody": "mellow flute",
+        "mood": "dusty jazz sensibility",
+        "soul": "loose swing feel"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-014_115bpm",
+      "zone": 3,
+      "seq": 14,
+      "bpm": 115,
+      "title": "KU-Z3-014_115bpm",
+      "prompt": "neo soul lofi, chill hop, instrumental, no vocals, 115bpm, background work music, broken beat, warm tape saturation, muted trumpet, minor 7th chords, introspective mood, soulful jazz samples",
+      "files": [
+        "KU-Z3-014_115bpm-A.mp3",
+        "KU-Z3-014_115bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "neo soul lofi",
+          "chill hop"
+        ],
+        "drum": "broken beat",
+        "texture": "warm tape saturation",
+        "melody": "muted trumpet",
+        "mood": "introspective mood",
+        "soul": "soulful jazz samples"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-015_116bpm",
+      "zone": 3,
+      "seq": 15,
+      "bpm": 116,
+      "title": "KU-Z3-015_116bpm",
+      "prompt": "lofi electronic fusion, lofi hip hop, instrumental, no vocals, 116bpm, background work music, bossa nova rhythm, lo-fi cassette warmth, soft synth pad, melancholic chord progressions, soul sample texture",
+      "files": [
+        "KU-Z3-015_116bpm-A.mp3",
+        "KU-Z3-015_116bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "lofi electronic fusion",
+          "lofi hip hop"
+        ],
+        "drum": "bossa nova rhythm",
+        "texture": "lo-fi cassette warmth",
+        "melody": "soft synth pad",
+        "mood": "melancholic chord progressions",
+        "soul": "soul sample texture"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-016_116bpm",
+      "zone": 3,
+      "seq": 16,
+      "bpm": 116,
+      "title": "KU-Z3-016_116bpm",
+      "prompt": "soul groove instrumental, chill hop, instrumental, no vocals, 116bpm, background work music, neo soul groove, analog tape hiss, warm saxophone, nostalgic late-night calm, raw soulful warmth",
+      "files": [
+        "KU-Z3-016_116bpm-A.mp3",
+        "KU-Z3-016_116bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "soul groove instrumental",
+          "chill hop"
+        ],
+        "drum": "neo soul groove",
+        "texture": "analog tape hiss",
+        "melody": "warm saxophone",
+        "mood": "nostalgic late-night calm",
+        "soul": "raw soulful warmth"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-017_116bpm",
+      "zone": 3,
+      "seq": 17,
+      "bpm": 116,
+      "title": "KU-Z3-017_116bpm",
+      "prompt": "latin lofi, broken beat soul, instrumental, no vocals, 116bpm, background work music, one drop rhythm, dusty sample texture, upright bass lead, laid-back timing, soul jazz warmth",
+      "files": [
+        "KU-Z3-017_116bpm-A.mp3",
+        "KU-Z3-017_116bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "latin lofi",
+          "broken beat soul"
+        ],
+        "drum": "one drop rhythm",
+        "texture": "dusty sample texture",
+        "melody": "upright bass lead",
+        "mood": "laid-back timing",
+        "soul": "soul jazz warmth"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-018_116bpm",
+      "zone": 3,
+      "seq": 18,
+      "bpm": 116,
+      "title": "KU-Z3-018_116bpm",
+      "prompt": "broken beat soul, lofi electronic fusion, instrumental, no vocals, 116bpm, background work music, soul shuffle beat, subtle field recording texture, jazzy electric guitar, modal chord progression, warm jazzy atmosphere, off-grid rhythm feel",
+      "files": [
+        "KU-Z3-018_116bpm-A.mp3",
+        "KU-Z3-018_116bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "broken beat soul",
+          "lofi electronic fusion"
+        ],
+        "drum": "soul shuffle beat",
+        "texture": "subtle field recording texture",
+        "melody": "jazzy electric guitar",
+        "mood": "warm jazzy atmosphere",
+        "soul": "off-grid rhythm feel"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-019_117bpm",
+      "zone": 3,
+      "seq": 19,
+      "bpm": 117,
+      "title": "KU-Z3-019_117bpm",
+      "prompt": "soul groove instrumental, jazz funk lofi, instrumental, no vocals, 117bpm, background work music, shuffled hi-hats, gentle vinyl noise, vibraphone, laid-back timing, soul sample texture",
+      "files": [
+        "KU-Z3-019_117bpm-A.mp3",
+        "KU-Z3-019_117bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "soul groove instrumental",
+          "jazz funk lofi"
+        ],
+        "drum": "shuffled hi-hats",
+        "texture": "gentle vinyl noise",
+        "melody": "vibraphone",
+        "mood": "laid-back timing",
+        "soul": "soul sample texture"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-020_117bpm",
+      "zone": 3,
+      "seq": 20,
+      "bpm": 117,
+      "title": "KU-Z3-020_117bpm",
+      "prompt": "chill hop, broken beat soul, instrumental, no vocals, 117bpm, background work music, wire brushes on snare, dusty sample texture, rhodes piano, nostalgic late-night calm, soulful jazz samples",
+      "files": [
+        "KU-Z3-020_117bpm-A.mp3",
+        "KU-Z3-020_117bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "chill hop",
+          "broken beat soul"
+        ],
+        "drum": "wire brushes on snare",
+        "texture": "dusty sample texture",
+        "melody": "rhodes piano",
+        "mood": "nostalgic late-night calm",
+        "soul": "soulful jazz samples"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-021_117bpm",
+      "zone": 3,
+      "seq": 21,
+      "bpm": 117,
+      "title": "KU-Z3-021_117bpm",
+      "prompt": "afro lofi, jazz funk lofi, instrumental, no vocals, 117bpm, background work music, hand percussion only, vinyl crackle, nylon string guitar, warm jazzy atmosphere, loose swing feel",
+      "files": [
+        "KU-Z3-021_117bpm-A.mp3",
+        "KU-Z3-021_117bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "afro lofi",
+          "jazz funk lofi"
+        ],
+        "drum": "hand percussion only",
+        "texture": "vinyl crackle",
+        "melody": "nylon string guitar",
+        "mood": "warm jazzy atmosphere",
+        "soul": "loose swing feel"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-022_117bpm",
+      "zone": 3,
+      "seq": 22,
+      "bpm": 117,
+      "title": "KU-Z3-022_117bpm",
+      "prompt": "broken beat soul, soul groove instrumental, instrumental, no vocals, 117bpm, background work music, lazy hip hop drums, soft room ambience, mellow flute, diminished passing chords, introspective mood, soul jazz warmth",
+      "files": [
+        "KU-Z3-022_117bpm-A.mp3",
+        "KU-Z3-022_117bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "broken beat soul",
+          "soul groove instrumental"
+        ],
+        "drum": "lazy hip hop drums",
+        "texture": "soft room ambience",
+        "melody": "mellow flute",
+        "mood": "introspective mood",
+        "soul": "soul jazz warmth"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-023_118bpm",
+      "zone": 3,
+      "seq": 23,
+      "bpm": 118,
+      "title": "KU-Z3-023_118bpm",
+      "prompt": "afro lofi, lofi hip hop, instrumental, no vocals, 118bpm, background work music, raw boom bap feel, mellow background haze, rhodes piano, dusty jazz sensibility, off-grid rhythm feel",
+      "files": [
+        "KU-Z3-023_118bpm-A.mp3",
+        "KU-Z3-023_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "afro lofi",
+          "lofi hip hop"
+        ],
+        "drum": "raw boom bap feel",
+        "texture": "mellow background haze",
+        "melody": "rhodes piano",
+        "mood": "dusty jazz sensibility",
+        "soul": "off-grid rhythm feel"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-024_118bpm",
+      "zone": 3,
+      "seq": 24,
+      "bpm": 118,
+      "title": "KU-Z3-024_118bpm",
+      "prompt": "neo soul lofi, chill hop, instrumental, no vocals, 118bpm, background work music, jazzy rim shot pattern, analog tape hiss, upright bass lead, lydian chord color, melancholic chord progressions, raw soulful warmth",
+      "files": [
+        "KU-Z3-024_118bpm-A.mp3",
+        "KU-Z3-024_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "neo soul lofi",
+          "chill hop"
+        ],
+        "drum": "jazzy rim shot pattern",
+        "texture": "analog tape hiss",
+        "melody": "upright bass lead",
+        "mood": "melancholic chord progressions",
+        "soul": "raw soulful warmth"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z3-025_118bpm",
+      "zone": 3,
+      "seq": 25,
+      "bpm": 118,
+      "title": "KU-Z3-025_118bpm",
+      "prompt": "soul groove instrumental, latin lofi, instrumental, no vocals, 118bpm, background work music, bossa nova rhythm, subtle field recording texture, vibraphone, laid-back timing, soul jazz warmth",
+      "files": [
+        "KU-Z3-025_118bpm-A.mp3",
+        "KU-Z3-025_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "soul groove instrumental",
+          "latin lofi"
+        ],
+        "drum": "bossa nova rhythm",
+        "texture": "subtle field recording texture",
+        "melody": "vibraphone",
+        "mood": "laid-back timing",
+        "soul": "soul jazz warmth"
+      },
+      "status": "pending",
+      "batch": "20260601-1050",
+      "createdAt": "2026-06-01T01:50:55.014Z"
+    }
+  ],
+  "updatedAt": "2026-06-01T01:50:55.014Z"
+}

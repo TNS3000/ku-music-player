@@ -1,0 +1,106 @@
+# KU SUNO 投入リスト  Zone 3「Night Drive」
+# 生成: 2026-06-01T01:50:55.014Z  /  25プロンプト  /  BPM 112-118
+# 手順: SUNOのCustom Modeで instrumental をON。
+#       各プロンプトの TITLE をタイトル欄、STYLE をStyle欄に貼り付ける。
+#       TITLEを使うとPart B(import-tracks.js)が自動でファイルを照合できる。
+#       1プロンプト = SUNOで2take生成 → -A / -B の2ファイルになる。
+
+[001] TITLE: KU-Z3-001_112bpm
+      STYLE: jazz funk lofi, neo soul lofi, instrumental, no vocals, 112bpm, background work music, syncopated jazz groove, gentle vinyl noise, vibraphone, introspective mood, soulful jazz samples
+      FILES: KU-Z3-001_112bpm-A.mp3  ,  KU-Z3-001_112bpm-B.mp3
+
+[002] TITLE: KU-Z3-002_112bpm
+      STYLE: latin lofi, lofi hip hop, instrumental, no vocals, 112bpm, background work music, half-time feel, soft room ambience, muted trumpet, jazz chord extensions, laid-back timing, soul jazz warmth
+      FILES: KU-Z3-002_112bpm-A.mp3  ,  KU-Z3-002_112bpm-B.mp3
+
+[003] TITLE: KU-Z3-003_113bpm
+      STYLE: lofi electronic fusion, lofi hip hop, instrumental, no vocals, 113bpm, background work music, boom bap drums, mellow background haze, rhodes piano, nostalgic late-night calm, soul sample texture
+      FILES: KU-Z3-003_113bpm-A.mp3  ,  KU-Z3-003_113bpm-B.mp3
+
+[004] TITLE: KU-Z3-004_113bpm
+      STYLE: broken beat soul, lofi hip hop, instrumental, no vocals, 113bpm, background work music, jazz brush snare, lo-fi cassette warmth, mellow flute, dusty jazz sensibility, raw soulful warmth
+      FILES: KU-Z3-004_113bpm-A.mp3  ,  KU-Z3-004_113bpm-B.mp3
+
+[005] TITLE: KU-Z3-005_113bpm
+      STYLE: jazz funk lofi, latin lofi, instrumental, no vocals, 113bpm, background work music, jazzy rim shot pattern, subtle field recording texture, jazzy electric guitar, warm jazzy atmosphere, loose swing feel
+      FILES: KU-Z3-005_113bpm-A.mp3  ,  KU-Z3-005_113bpm-B.mp3
+
+[006] TITLE: KU-Z3-006_113bpm
+      STYLE: broken beat soul, chill hop, instrumental, no vocals, 113bpm, background work music, hand percussion only, analog tape hiss, electric piano, sus2 chord voicing, melancholic chord progressions, off-grid rhythm feel
+      FILES: KU-Z3-006_113bpm-A.mp3  ,  KU-Z3-006_113bpm-B.mp3
+
+[007] TITLE: KU-Z3-007_114bpm
+      STYLE: latin lofi, lofi hip hop, instrumental, no vocals, 114bpm, background work music, raw boom bap feel, warm tape saturation, warm saxophone, nostalgic late-night calm, soul jazz warmth
+      FILES: KU-Z3-007_114bpm-A.mp3  ,  KU-Z3-007_114bpm-B.mp3
+
+[008] TITLE: KU-Z3-008_114bpm
+      STYLE: lofi hip hop, neo soul lofi, instrumental, no vocals, 114bpm, background work music, drunk drum feel, dusty sample texture, nylon string guitar, modal chord progression, dusty jazz sensibility, raw soulful warmth
+      FILES: KU-Z3-008_114bpm-A.mp3  ,  KU-Z3-008_114bpm-B.mp3
+
+[009] TITLE: KU-Z3-009_114bpm
+      STYLE: afro lofi, latin lofi, instrumental, no vocals, 114bpm, background work music, shuffled hi-hats, vinyl crackle, upright bass lead, tritone substitution feel, introspective mood, loose swing feel
+      FILES: KU-Z3-009_114bpm-A.mp3  ,  KU-Z3-009_114bpm-B.mp3
+
+[010] TITLE: KU-Z3-010_114bpm
+      STYLE: lofi hip hop, soul groove instrumental, instrumental, no vocals, 114bpm, background work music, lazy hip hop drums, vinyl crackle, soft synth pad, pentatonic melody over jazz chords, laid-back timing, off-grid rhythm feel
+      FILES: KU-Z3-010_114bpm-A.mp3  ,  KU-Z3-010_114bpm-B.mp3
+
+[011] TITLE: KU-Z3-011_115bpm
+      STYLE: broken beat soul, lofi electronic fusion, instrumental, no vocals, 115bpm, background work music, loose swing drums, soft room ambience, electric piano, lydian chord color, warm jazzy atmosphere, soul sample texture
+      FILES: KU-Z3-011_115bpm-A.mp3  ,  KU-Z3-011_115bpm-B.mp3
+
+[012] TITLE: KU-Z3-012_115bpm
+      STYLE: lofi hip hop, neo soul lofi, instrumental, no vocals, 115bpm, background work music, off-beat pocket groove, mellow background haze, nylon string guitar, diminished passing chords, melancholic chord progressions, soulful jazz samples
+      FILES: KU-Z3-012_115bpm-A.mp3  ,  KU-Z3-012_115bpm-B.mp3
+
+[013] TITLE: KU-Z3-013_115bpm
+      STYLE: neo soul lofi, chill hop, instrumental, no vocals, 115bpm, background work music, wire brushes on snare, gentle vinyl noise, mellow flute, minor 7th chords, dusty jazz sensibility, loose swing feel
+      FILES: KU-Z3-013_115bpm-A.mp3  ,  KU-Z3-013_115bpm-B.mp3
+
+[014] TITLE: KU-Z3-014_115bpm
+      STYLE: neo soul lofi, chill hop, instrumental, no vocals, 115bpm, background work music, broken beat, warm tape saturation, muted trumpet, minor 7th chords, introspective mood, soulful jazz samples
+      FILES: KU-Z3-014_115bpm-A.mp3  ,  KU-Z3-014_115bpm-B.mp3
+
+[015] TITLE: KU-Z3-015_116bpm
+      STYLE: lofi electronic fusion, lofi hip hop, instrumental, no vocals, 116bpm, background work music, bossa nova rhythm, lo-fi cassette warmth, soft synth pad, melancholic chord progressions, soul sample texture
+      FILES: KU-Z3-015_116bpm-A.mp3  ,  KU-Z3-015_116bpm-B.mp3
+
+[016] TITLE: KU-Z3-016_116bpm
+      STYLE: soul groove instrumental, chill hop, instrumental, no vocals, 116bpm, background work music, neo soul groove, analog tape hiss, warm saxophone, nostalgic late-night calm, raw soulful warmth
+      FILES: KU-Z3-016_116bpm-A.mp3  ,  KU-Z3-016_116bpm-B.mp3
+
+[017] TITLE: KU-Z3-017_116bpm
+      STYLE: latin lofi, broken beat soul, instrumental, no vocals, 116bpm, background work music, one drop rhythm, dusty sample texture, upright bass lead, laid-back timing, soul jazz warmth
+      FILES: KU-Z3-017_116bpm-A.mp3  ,  KU-Z3-017_116bpm-B.mp3
+
+[018] TITLE: KU-Z3-018_116bpm
+      STYLE: broken beat soul, lofi electronic fusion, instrumental, no vocals, 116bpm, background work music, soul shuffle beat, subtle field recording texture, jazzy electric guitar, modal chord progression, warm jazzy atmosphere, off-grid rhythm feel
+      FILES: KU-Z3-018_116bpm-A.mp3  ,  KU-Z3-018_116bpm-B.mp3
+
+[019] TITLE: KU-Z3-019_117bpm
+      STYLE: soul groove instrumental, jazz funk lofi, instrumental, no vocals, 117bpm, background work music, shuffled hi-hats, gentle vinyl noise, vibraphone, laid-back timing, soul sample texture
+      FILES: KU-Z3-019_117bpm-A.mp3  ,  KU-Z3-019_117bpm-B.mp3
+
+[020] TITLE: KU-Z3-020_117bpm
+      STYLE: chill hop, broken beat soul, instrumental, no vocals, 117bpm, background work music, wire brushes on snare, dusty sample texture, rhodes piano, nostalgic late-night calm, soulful jazz samples
+      FILES: KU-Z3-020_117bpm-A.mp3  ,  KU-Z3-020_117bpm-B.mp3
+
+[021] TITLE: KU-Z3-021_117bpm
+      STYLE: afro lofi, jazz funk lofi, instrumental, no vocals, 117bpm, background work music, hand percussion only, vinyl crackle, nylon string guitar, warm jazzy atmosphere, loose swing feel
+      FILES: KU-Z3-021_117bpm-A.mp3  ,  KU-Z3-021_117bpm-B.mp3
+
+[022] TITLE: KU-Z3-022_117bpm
+      STYLE: broken beat soul, soul groove instrumental, instrumental, no vocals, 117bpm, background work music, lazy hip hop drums, soft room ambience, mellow flute, diminished passing chords, introspective mood, soul jazz warmth
+      FILES: KU-Z3-022_117bpm-A.mp3  ,  KU-Z3-022_117bpm-B.mp3
+
+[023] TITLE: KU-Z3-023_118bpm
+      STYLE: afro lofi, lofi hip hop, instrumental, no vocals, 118bpm, background work music, raw boom bap feel, mellow background haze, rhodes piano, dusty jazz sensibility, off-grid rhythm feel
+      FILES: KU-Z3-023_118bpm-A.mp3  ,  KU-Z3-023_118bpm-B.mp3
+
+[024] TITLE: KU-Z3-024_118bpm
+      STYLE: neo soul lofi, chill hop, instrumental, no vocals, 118bpm, background work music, jazzy rim shot pattern, analog tape hiss, upright bass lead, lydian chord color, melancholic chord progressions, raw soulful warmth
+      FILES: KU-Z3-024_118bpm-A.mp3  ,  KU-Z3-024_118bpm-B.mp3
+
+[025] TITLE: KU-Z3-025_118bpm
+      STYLE: soul groove instrumental, latin lofi, instrumental, no vocals, 118bpm, background work music, bossa nova rhythm, subtle field recording texture, vibraphone, laid-back timing, soul jazz warmth
+      FILES: KU-Z3-025_118bpm-A.mp3  ,  KU-Z3-025_118bpm-B.mp3
