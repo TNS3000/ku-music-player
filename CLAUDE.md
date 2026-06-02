@@ -1,335 +1,179 @@
-# CLAUDE.md — KU Project
-*Claude Codeがこのプロジェクトで作業する前に必ず読む指示書*
-*Last updated: 2026-05-11*
+# CLAUDE.md — ku-music-player
+
+**Repository:** TNS3000/ku-music-player
+**Scope:** ベジクル株式会社（青果卸業・24時間倉庫）向け機能性音楽プレイヤー専用 / Functional music player for Vegekul warehouse staff
+**Player URL:** https://TNS3000.github.io/ku-music-player/
+
+> このファイルはこのリポジトリ専用の作業憲法です。KU全体のビジョン・他サブブランド（HYPNIQ等）・記事/コンテンツ戦略はここには書きません。それらは `~/KU/` 側の Brand Bible を参照してください。
+> This file is the working constitution for THIS repository only. KU-wide vision, other sub-brands (HYPNIQ, etc.), and article/content strategy do NOT belong here — see the Brand Bible under `~/KU/`.
 
 ---
 
-## 0. このファイルの使い方
+## 1. ミッション / Mission
 
-作業前に必ずこのファイルを読む。
-判断に迷ったときはここに戻る。
-更新はCEOの指示のみ。
+**JP:** 倉庫作業員が楽しく・ミスなく・効率的に働ける音環境をデザインする。歌詞なしインスト音楽を時間帯（4ゾーン）に合わせて配信し、長時間聴いても疲れず背景化しやすい音楽を提供する。
 
----
-
-## 1. KUとは何か
-
-```
-KU（空）は "Research-informed Listening Experience Project"
-
-音楽配信サービスではない。
-音楽レーベルでもない。
-
-音・聴取・状態・空間・夜・注意・疲れ・休息の関係を探求する
-研究・設計プロジェクト。
-
-ビジョン："Designing Mind States Through Sound"
-ドメイン：ku-listen.ing
-```
-
-### KUが提供するもの
-```
-「効果」ではなく「体験」。
-医療効果は断定しない。
-"research-informed"な立場を取る。
-科学そのものを売らない。
-体験設計を主軸にする。
-```
-
-### ブランド構造
-```
-KU（空）— 上位ブランド
-│
-├── HYPNIQ — 睡眠・入眠領域（最初の実装）
-│
-├── [ 将来 ] Focus / Flow / Recovery
-│
-└── [ 将来 ] Sound Design Studio
-```
+**EN:** Design a sound environment that helps warehouse staff work enjoyably, accurately, and efficiently. Deliver instrumental, lyric-free music across four time-based zones — music that fades into the background and never fatigues over long shifts.
 
 ---
 
-## 2. ターゲット
+## 2. 音楽設計憲法 / Music Design Constitution
+
+### コアアイデンティティ / Core Identity
+**「LoFi meets Jazz Soul — Organic, Soulful, Functional」**
+
+- テイスト / Taste: LoFi Hip Hop × Jazz Soul × Organic
+- 歌詞 / Lyrics: **常にインストのみ。ボーカル・歌詞は一切禁止 / Instrumental only. No vocals, no lyrics — ever.**
+- 目的 / Purpose: 作業員が長時間聴いても疲れない、背景化しやすい音楽 / Music that stays in the background and never tires the listener over long shifts.
+- **ミュージシャン名（Nujabes・J Dilla等）はプロンプトに使わない / Never use musician names in prompts.**
+
+### Nujabes / J Dilla を言葉で表現する / Expressing the reference in words
+ミュージシャン名の代わりに以下の表現を使う / Use these phrases instead of names:
 
 ```
-ペルソナ：Justin
-年齢：35歳 / 職業：知的労働者
-特徴：カルチャー感度高め・音楽好き・寝付きが悪い
-     ストレスあり・都市部・20〜40代・英語圏
-
-拡張ターゲット：
-・ambient / electronicリスナー
-・neurodivergent層・HSP
-・クリエイター
-・サウナ / 瞑想層
-・都市疲労を感じる人
+soulful jazz samples
+melancholic chord progressions
+warm jazzy atmosphere
+introspective mood
+dusty jazz sensibility
+loose swing feel
+laid-back timing
+off-grid rhythm feel
+soul sample texture
+raw soulful warmth
 ```
+
+### 4ゾーン設計 / Four-Zone Design
+
+| Zone | 時間帯 / Time | BPM | コンセプト / Concept | 用途 / Use |
+|------|--------------|-----|---------------------|-----------|
+| Zone 1「Deep Work」 | 08:00-13:00 | 70-90 | アンビエント寄り Lo-Fi + 軽いジャズ | オフィス集中・午前準備 |
+| Zone 2「Active Flow」 | 13:00-19:00 | 100-112 | 午後の作業ピーク | 倉庫稼働・ピッキング |
+| Zone 3「Night Drive」 | 19:00-01:00 | 112-118 | 夜間集中の持続 | 夜間倉庫・搬送 |
+| Zone 4「Deep Night」 | 01:00-08:00 | 90-100 | 覚醒維持・疲労軽減 | 深夜〜早朝・単調作業 |
+
+### 機能性設計原則 / Functional Design Principles
+
+| パラメータ / Parameter | 設計値 / Value | 根拠 / Rationale |
+|-----------------------|---------------|------------------|
+| BPM | Zone別 70-118 | 歩行同期研究（Styns et al. 2007：最適106-130BPM） |
+| ダイナミクス / Dynamics | 抑制的 / Restrained | 集中の断絶を避ける |
+| 音域 / Register | 中低域中心 / Mid-low | 長時間作業での聴覚疲労防止 |
+| ドロップ・急展開 / Drops | 禁止 / Forbidden | 作業中断を誘発する |
+| 歌詞 / Lyrics | 禁止 / Forbidden | 言語処理の妨害防止（Shih et al. 2012） |
 
 ---
 
-## 3. ブランドトーン（必ず守る）
+## 3. SUNOプロンプト生成ルール / SUNO Prompt Rules
 
-### 使う表現
+### 必須要素（毎回含める） / Required elements (every time)
 ```
-・research suggests / we observe
-・listening session / protocol / experience
-・research-informed
-・appears to / may / in some cases
-・「研究から示唆される」
-・「私たちが観察したのは」
+instrumental, no vocals, [BPM]bpm, background work music
 ```
 
-### 絶対に使わない表現
+### プロンプト構造 / Prompt structure
 ```
-・proven / guaranteed / clinically proven
-・「効果があります」「眠れます」
-・「科学的に証明された」
-・healing / spiritual / new age系のcliché
-・wellness buzzwords
-・lo-fi beats / generic sleep music
+[コアスタイル], instrumental, no vocals, [BPM]bpm,
+[ドラムパターン], [テクスチャー], [メロディ楽器],
+[ハーモニー要素（50%で追加）], [スケール],
+[ムード], [Soulful Jazz表現], [ドロップ禁止（Zone1/4）]
 ```
 
-### 声のトーン
+### ファイル命名規則 / File naming
 ```
-calm / reflective / research-oriented /
-aesthetic / non-hype / non-clickbait /
-speculative but careful
+KU-Z[Zone番号]-[連番]_[BPM]bpm-[A/B].mp3
+例 / e.g.: KU-Z2-011_104bpm-A.mp3
 ```
+
+### Zone別コアスタイル / Core styles by zone
+
+**Zone 1（70-90bpm）**
+ambient lofi, lo-fi beats, organic lofi, chill hop, jazz fusion lofi, bossa nova lofi, modal jazz lofi, ambient jazz instrumental, soul jazz lofi, downtempo soul
+
+**Zone 2（100-112bpm）**
+lofi hip hop, chill hop, lo-fi beats, jazz hop, neo soul instrumental, afrobeat lofi, latin jazz lofi, soul jazz fusion, downtempo groove, organic hip hop
+
+**Zone 3（112-118bpm）**
+lofi hip hop, chill hop, lofi electronic fusion, neo soul lofi, afro lofi, jazz funk lofi, broken beat soul, latin lofi, soul groove instrumental
+
+**Zone 4（90-100bpm）**
+lofi hip hop, ambient lofi, chill hop, midnight jazz lofi, soul jazz instrumental, bossa nova lofi, modal jazz lofi, downtempo soul, organic jazz lofi, late night soul instrumental
+
+### ドラムパターン（同一セッション内で被りを避ける） / Drum patterns (no repeats per session)
+```
+jazz brush snare / wire brushes on snare / half-time feel
+bossa nova rhythm / one drop rhythm / hand percussion only
+neo soul groove / shuffled hi-hats / boom bap drums
+broken beat / loose swing drums / drunk drum feel
+off-beat pocket groove / jazzy rim shot pattern
+raw boom bap feel / soul shuffle beat / syncopated jazz groove
+lazy hip hop drums
+```
+
+### コードカラー（50%の確率で追加） / Chord color (add ~50% of the time)
+```
+minor 7th chords / jazz chord extensions / sus2 chord voicing
+lydian chord color / diminished passing chords
+tritone substitution feel / modal chord progression
+pentatonic melody over jazz chords
+```
+
+### バリエーション確保のチェックリスト / Variation checklist
+- [ ] 同一セッションでドラムパターンが被っていないか
+- [ ] 同一セッションでメロディ楽器が被っていないか
+- [ ] 同一セッションでテクスチャーが被っていないか
+- [ ] `instrumental` と `no vocals` が含まれているか
+- [ ] BPMが数値で明示されているか
+- [ ] ミュージシャン名が含まれていないか
 
 ---
 
-## 4. コンテンツ戦略
+## 4. 安全制約 / Safety Constraints (OSHA / NIOSH)
 
-### フェーズ設計
-```
-Phase 1：Reader acquisition（読者獲得）
- └ 信頼を先に作る。売らない。KUの世界観に触れさせる。
- └ Reddit最優先（r/ambientmusic / r/sleep）
+倉庫BGMで必ず守る / Hard rules for warehouse BGM:
 
-Phase 2：Research publishing（研究発信）
- └ KUが「探求プロジェクト」であることを示す。
- └ 仮説と根拠を明確に分けて発信。
+- スピーカー音量がフォークリフト警告音・走行音をマスクしないこと / BGM must not mask forklift warning sounds.
+- 環境騒音 + BGM の合計音圧が85dBを超えないこと（NIOSH基準） / Combined sound pressure must stay under 85dB.
+- フォークリフト走行路・搬送機械近くは特に注意 / Extra caution near forklift paths and conveyor machinery.
 
-Phase 3：Conversion（販売接続）
- └ Protocol・アーティスト作品・Membership（$99/yr）への導線。
-```
+---
 
-### カテゴリ構造（大項目）
-```
-Phase 1：
- A. Urban noise & mind state
- B. Sleep science basics
- C. Listening practices
+## 5. 技術スタック / Tech Stack
 
-Phase 2：
- D. State transition science
- E. Protocol observations
- F. Sound design research
+| コンポーネント / Component | ツール / Tool | 場所 / Location |
+|---------------------------|---------------|-----------------|
+| プロンプト生成 | prompt-generator.js (Node.js) | ~/ku-music-player/ |
+| 楽曲生成 | SUNO Pro（手動 / manual） | https://suno.com |
+| 楽曲保存 | 外付けHDD | /Volumes/HD-NRLD-A/KU-Project/music/ |
+| 配信 | GitHub Pages | https://TNS3000.github.io/ku-music-player/ |
+| プレイヤー | index.html (Vanilla JS) | ~/ku-music-player/ |
+| バージョン管理 | GitHub | TNS3000/ku-music-player |
+| 台帳管理 | prompts.json | ~/ku-music-player/ |
 
-Phase 3：
- G. Protocol deep dives
- H. Artist × KU
- I. Membership onboarding
-```
+### よく使うコマンド / Common commands
+```bash
+# 新しい音源をアップ / Add new tracks
+cp /Volumes/HD-NRLD-A/KU-Project/music/zone[N]/*.mp3 ~/ku-music-player/zone[N]/
+git add . && git commit -m "Add new tracks Zone[N]" && git push
 
-### 記事フォーマット構造
-```
-Title          ： 疑問形 or 逆説形
-Lede           ： 情景描写 or 研究の驚きから1文
-Body structure ：
-  - What we know（科学的根拠）
-  - What we think（KUの仮説）
-  - What we don't know（誠実な限界の開示）
-  - What this means for you（Justinへの接続）
-CTA            ： Protocolを試す / Newsletter登録 / 共同研究者になる
-Legal check    ： 医療的断言なし・アフィリエイト開示・データ同意リンク
-Podcast ready  ： 箇条書き最小 / 読み上げ可能な文体
-```
-
-### 3フォーマット設計
-```
-Newsletter（完全版）  2000〜2500字 / words
-  ↓ 圧縮
-Blog（中間版）        1200〜1500字 / words
-  ↓ 圧縮＋Reddit文体
-Reddit（短縮版）      800〜1000字 / words
-                      ＋ 末尾に問いかけを必ず入れる
-```
-
-### 発信プラットフォーム
-```
-Beehiiv   ：メインNewsletter（無料＋有料$99/yr）★★★
-Reddit    ：r/ambientmusic / r/sleep ★★★
-Blog      ：ku-listen.ingに掲載 ★★
-X         ：研究ツイート・断片 ★
-Podcast   ：将来対応（記事は読み上げ可能な文体で書いておく）
+# プロンプト生成 / Generate prompts
+node prompt-generator.js --zone 2 --count 25
 ```
 
 ---
 
-## 5. 自動化タスク（Claude Codeが実行するもの）
+## 6. 楽曲ライブラリ状況 / Track Library Status
 
-### 5-1. 記事初稿生成
+| Zone | 配信曲数 / Tracks | BPM範囲 | ステータス / Status |
+|------|------------------|---------|--------------------|
+| Zone 1「Deep Work」 | 10 | 70-90 | 運用中 / Live |
+| Zone 2「Active Flow」 | 35+ | 100-112 | 拡張中 / Expanding |
+| Zone 3「Night Drive」 | 69 | 112-118 | 拡張中 / Expanding |
+| Zone 4「Deep Night」 | 10 | 90-100 | 拡張予定 / Planned |
 
-**コマンド例：**
-```
-「KU記事を生成して。カテゴリ：[A-I] タイトル：[タイトル]」
-```
-
-**生成ルール：**
-- 必ずセクション4の記事フォーマット構造に従う
-- ブランドトーンのルール（セクション3）を遵守
-- 仮説と科学的根拠を明示的に区別する
-- 医療的断言を含まないか最後に必ずチェック
-- 出力はMarkdown形式
-
-**ファイル命名規則：**
-```
-KU_[カテゴリ]_[連番]_[slug]_draft.md
-例：KU_A1_urban-noise-mind-state_draft.md
-```
-
-### 5-2. 3フォーマット変換
-
-**コマンド例：**
-```
-「このNewsletter記事をBlogとReddit用に変換して」
-```
-
-**変換ルール：**
-
-Newsletter → Blog：
-- 2000〜2500字を1200〜1500字に圧縮
-- 個人的体験の描写とプロジェクト接続部分を残す
-- 研究の詳細は圧縮してよい
-
-Newsletter → Reddit：
-- 800〜1000字に圧縮
-- 売り込みゼロ。KUへの言及は最小限
-- 末尾に読者への問いかけを必ず入れる
-- 問いかけは「体験ベース」の問い（概念的すぎない）
-
-**ファイル命名規則：**
-```
-KU_[カテゴリ]_[連番]_[slug]_newsletter.md
-KU_[カテゴリ]_[連番]_[slug]_blog.md
-KU_[カテゴリ]_[連番]_[slug]_reddit.md
-```
-
-### 5-3. 英語 ↔ 日本語 変換
-
-**コマンド例：**
-```
-「この記事を日本語にして」
-「この記事を英語にして」
-```
-
-**翻訳ルール：**
-- 直訳ではなく、その言語のリズムで書き直す
-- ブランドトーンを言語ごとに最適化する
-- 日本語版はより体験ベースの問いかけにする
-- ファイル名末尾に _JP / _EN を付ける
-
-### 5-4. KPIレポート生成（将来対応）
-```
-・週次：開封率・Reddit upvote・登録者数
-・月次：フォーマット別パフォーマンス比較
-・異常値アラート
-```
-
-### 5-5. SNS投稿スケジューリング（将来対応）
-```
-・記事からX投稿用の断片を生成
-・Redditへの投稿テキスト最終確認
-```
+**目標 / Target:** 各Zone 100曲（合計400曲）で24時間シャッフルの繰り返し感を最小化 / 100 tracks per zone (400 total) to minimize repetition over 24h shuffle.
 
 ---
 
-## 6. 手動を維持するもの（Claude Codeがやらないこと）
-
-```
-・Reddit投稿・返信（信頼の問題）
-・購入者への個別返信
-・アーティストとの関係構築
-・コンテンツの品質判断
-・施策の最終決定
-・Brand Bibleの更新（CEOのみ）
-```
-
----
-
-## 7. 法的チェックリスト（全コンテンツ共通）
-
-生成した全コンテンツに対して以下を確認する：
-
-```
-□ 医療効果の断言がないか
-□ 「証明された」「保証する」等の表現がないか
-□ アフィリエイトリンクを含む場合、開示文があるか
-  EN："This content contains affiliate links."
-  JP：「本記事にはアフィリエイトリンクが含まれています。」
-□ データ収集への同意リンクが含まれているか（該当記事）
-□ Suno生成音源の商業利用規約に違反していないか
-```
-
----
-
-## 8. ファイル構造（正式）
-
-```
-KU/
-  CLAUDE.md                ← このファイル（指示書。必ず最初に読む）
-  /content
-    /drafts                ← 全記事の初稿・作業中ファイル
-    /published             ← 公開済みファイル（編集しない）
-  /strategy                ← Brand Bible・コンテンツ戦略書
-  /assets
-    /audio                 ← Protocol音源
-    /images                ← ビジュアル素材
-  /data
-    /listener-reports      ← リスナーデータ（匿名化済み）
-```
-
-### 廃止フォルダ（使わない）
-```
-/notes   → /content/drafts に統合
-/posts   → /content/drafts に統合
-```
-
-### ファイル命名規則
-```
-記事初稿：
-  YYYY-MM-DD_[slug]_[format].md
-  例：2026-05-11_involuntary-listening_newsletter.md
-      2026-05-11_involuntary-listening_blog.md
-      2026-05-11_involuntary-listening_reddit.md
-      2026-05-11_involuntary-listening_newsletter_JP.md
-
-戦略・設計書：
-  KU_[内容]_v[バージョン].md
-  例：KU_brand-bible_v1.2.md
-      KU_content-strategy_v1.0.md
-```
-
-### 作業ルール（Claude Code・このチャット共通）
-```
-1. 作業前に必ずCLAUDE.mdを読む
-2. ファイルは必ず /content/drafts に保存する
-3. 命名規則に従う（フォルダを新規作成しない）
-4. 公開済みファイルは /published に移動し編集しない
-5. 戦略書の更新はCEOの指示のみ
-```
-
----
-
-## 9. Version History
-
-| Version | Date | 変更内容 |
-|---|---|---|
-| 1.0 | 2026-05-11 | 初版作成。Brand Bible + コンテンツ戦略 + 自動化タスクを統合 |
-| 1.1 | 2026-05-11 | フォルダ構成を正式化。notes・posts廃止。命名規則・作業ルールを追加 |
-
----
-
-*KU / 空 — "Designing Human States Through Sound"*
-*ku-listen.ing*
+*このファイルは ku-music-player リポジトリ専用の作業憲法です。KU全体戦略は `~/KU/` を参照。*
+*This file is the working constitution for the ku-music-player repository only. For KU-wide strategy, see `~/KU/`.*
