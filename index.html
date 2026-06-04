@@ -395,6 +395,8 @@ body::after {
   flex-shrink: 0;
 }
 .play-btn:active { transform: scale(0.92); }
+.like-btn.liked { color: #e05a5a; }
+.like-btn.liked:active { color: #c03a3a; background: rgba(224,90,90,.1); }
 
 /* ====== シートオーバーレイ ====== */
 .sheet-overlay {
@@ -631,6 +633,9 @@ body::after {
             <polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/>
           </svg>
         </button>
+        <button class="ctrl-btn like-btn" id="likeBtn" onclick="toggleLike()" aria-label="いいね">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -663,6 +668,7 @@ body::after {
 // === 再生ログ ===
 const LOG_KEY = 'ku_play_log'
 const AUTO_KEY = 'ku_auto_zone'
+const LIKES_KEY = 'ku_likes'
 const MAX_LOG_ENTRIES = 10000
 let trackEndedNaturally = false
 
@@ -682,7 +688,7 @@ const exportCSV = () => {
   let logs
   try { logs = JSON.parse(localStorage.getItem(LOG_KEY) || '[]') } catch (_) { logs = [] }
   if (!logs.length) { alert('ログがありません'); return }
-  const cols = ['type', 'ts', 'hour', 'zone', 'title', 'elapsed', 'duration', 'fromZone', 'toZone']
+  const cols = ['type', 'ts', 'hour', 'zone', 'title', 'track_id', 'elapsed', 'duration', 'fromZone', 'toZone']
   const rows = [cols.join(',')]
   logs.forEach(e => rows.push(cols.map(c => e[c] ?? '').join(',')))
   const blob = new Blob(['﻿' + rows.join('\n')], { type: 'text/csv;charset=utf-8;' })
@@ -692,6 +698,37 @@ const exportCSV = () => {
   document.body.appendChild(a)
   a.click()
   document.body.removeChild(a)
+}
+
+// === いいね ===
+const getLikes = () => {
+  try { return new Set(JSON.parse(localStorage.getItem(LIKES_KEY) || '[]')) } catch (_) { return new Set() }
+}
+const saveLikes = (likes) => {
+  try { localStorage.setItem(LIKES_KEY, JSON.stringify([...likes])) } catch (_) {}
+}
+const updateLikeBtn = () => {
+  const track = queue[idx] || {}
+  const liked = getLikes().has(track.title)
+  const btn = document.getElementById('likeBtn')
+  btn.classList.toggle('liked', liked)
+  btn.innerHTML = liked
+    ? '<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
+    : '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
+}
+const toggleLike = () => {
+  const track = queue[idx] || {}
+  if (!track.title) return
+  const likes = getLikes()
+  if (likes.has(track.title)) {
+    likes.delete(track.title)
+    logEvent('unlike', { track_id: track.title })
+  } else {
+    likes.add(track.title)
+    logEvent('like', { track_id: track.title })
+  }
+  saveLikes(likes)
+  updateLikeBtn()
 }
 
 // === ゾーン定義 ===
@@ -1150,6 +1187,7 @@ const load = (i) => {
   document.getElementById('timeEl').textContent = '0:00'
   document.getElementById('timeDu').textContent = '—'
   loadAlbumArt(t.file)
+  updateLikeBtn()
 }
 
 const togglePlay = () => {
