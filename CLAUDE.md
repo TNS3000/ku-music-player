@@ -198,5 +198,20 @@ node prompt-generator.js --zone 2 --count 25
 
 ---
 
+## 7. 直近の変更と次のアクション / Recent Changes & Next Steps
+
+### 2026-06-04 の作業
+- **Zone1拡張完了**: KU-Z1-011〜060（A/B各50曲 = 100ファイル）を追加。Zone1合計110曲、目標100曲を達成。
+- **いいね機能（♡ボタン）実装**: コントロール行に追加。play-log統合（like/unlikeイベント）・localStorage永続化・CSV出力対応。本番反映済み。
+- **ライブラリ全数スキャン**: HDD・リポジトリ・index.htmlの整合性確認。Zone3に既知問題を発見（上記「既知の問題」参照）。
+
+### 次回優先アクション / Next priorities
+1. **Zone3 KU-Z3-032-B を生成**: SUNOで116bpm / Zone3スタイルで生成 → `zone3/` にコピー → index.htmlに1行追加
+2. **Zone3 重複artifact を削除**: `git rm "zone3/KU-Z3-032_116bpm-A (1).mp3" && git commit`
+3. **Zone3 拡張**: 現在69曲、目標まであと31曲
+4. **Zone4 拡張**: 現在10曲、最優先で拡張（目標まであと90曲）
+
+---
+
 *このファイルは ku-music-player リポジトリ専用の作業憲法です。KU全体戦略は `~/KU/` を参照。*
 *This file is the working constitution for the ku-music-player repository only. For KU-wide strategy, see `~/KU/`.*
