@@ -149,6 +149,15 @@ pentatonic melody over jazz chords
 | プレイヤー | index.html (Vanilla JS) | ~/ku-music-player/ |
 | バージョン管理 | GitHub | TNS3000/ku-music-player |
 | 台帳管理 | prompts.json | ~/ku-music-player/ |
+| いいね機能 | ♡ボタン（Vanilla JS + localStorage） | index.html |
+
+### いいね機能の仕様 / Like feature spec
+- コントロール行末尾に♡ボタンを配置（現在再生中トラックに対して作用）
+- タップでon/off切替：アウトライン ↔ 塗りつぶし（赤 `#e05a5a`）
+- 永続化キー: `ku_likes`（localStorage、Set形式で title を保存）
+- play-logへ記録: `type: "like" / "unlike"` + `track_id` フィールド
+- 既存5イベント（play_start / play_stop / skip / zone_switch / track_complete）と同じ `logEvent()` 関数に統合
+- CSVエクスポートに `track_id` カラム追加済み
 
 ### よく使うコマンド / Common commands
 ```bash
@@ -164,14 +173,28 @@ node prompt-generator.js --zone 2 --count 25
 
 ## 6. 楽曲ライブラリ状況 / Track Library Status
 
-| Zone | 配信曲数 / Tracks | BPM範囲 | ステータス / Status |
-|------|------------------|---------|--------------------|
-| Zone 1「Deep Work」 | 10 | 70-90 | 運用中 / Live |
-| Zone 2「Active Flow」 | 35+ | 100-112 | 拡張中 / Expanding |
-| Zone 3「Night Drive」 | 69 | 112-118 | 拡張中 / Expanding |
-| Zone 4「Deep Night」 | 10 | 90-100 | 拡張予定 / Planned |
+*最終確認: 2026-06-04*
+
+| Zone | 配信曲数 / Tracks | 目標まで | BPM範囲 | ステータス / Status |
+|------|------------------|---------|---------|-------------------|
+| Zone 1「Deep Work」 | **110** | +10超過 | 70-90 | 目標達成・運用中 / Target reached |
+| Zone 2「Active Flow」 | **100** | 達成 | 100-112 | 目標達成・運用中 / Target reached |
+| Zone 3「Night Drive」 | **69** ※ | あと31曲 | 112-118 | 拡張中 / Expanding |
+| Zone 4「Deep Night」 | **10** | あと90曲 | 90-100 | 拡張予定 / Planned |
+
+**合計 / Total: 289 / 400曲（72.3%）**
 
 **目標 / Target:** 各Zone 100曲（合計400曲）で24時間シャッフルの繰り返し感を最小化 / 100 tracks per zone (400 total) to minimize repetition over 24h shuffle.
+
+### 既知の問題 / Known Issues
+- **Zone3 KU-Z3-032-B 欠損**: `KU-Z3-032_116bpm-B.mp3` がHDD・リポジトリ両方に存在しない（生成漏れ）。SUNOで再生成が必要。
+- **Zone3 重複ファイル**: `KU-Z3-032_116bpm-A (1).mp3`（macOS重複artifact）がリポジトリに混入。index.html未登録だが容量を無駄に使用。要 `git rm`。
+
+### HDD ↔ リポジトリ整合性 / Sync status
+- Zone 1: HDD=Repo=HTML=110 ✓
+- Zone 2: HDD=Repo=HTML=100 ✓
+- Zone 3: HDD=Repo=70（重複1含む実効69）、HTML=69 ※上記既知問題参照
+- Zone 4: HDD=Repo=HTML=10 ✓
 
 ---
 
