@@ -649,7 +649,1307 @@
       "status": "pending",
       "batch": "20260601-1050",
       "createdAt": "2026-06-01T01:50:55.014Z"
+    },
+    {
+      "id": "KU-Z5-001_118bpm",
+      "zone": 5,
+      "seq": 1,
+      "bpm": 118,
+      "title": "KU-Z5-001_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-001_118bpm-A.mp3",
+        "KU-Z5-001_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-002_118bpm",
+      "zone": 5,
+      "seq": 2,
+      "bpm": 118,
+      "title": "KU-Z5-002_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-002_118bpm-A.mp3",
+        "KU-Z5-002_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-003_118bpm",
+      "zone": 5,
+      "seq": 3,
+      "bpm": 118,
+      "title": "KU-Z5-003_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-003_118bpm-A.mp3",
+        "KU-Z5-003_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-004_118bpm",
+      "zone": 5,
+      "seq": 4,
+      "bpm": 118,
+      "title": "KU-Z5-004_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-004_118bpm-A.mp3",
+        "KU-Z5-004_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-005_118bpm",
+      "zone": 5,
+      "seq": 5,
+      "bpm": 118,
+      "title": "KU-Z5-005_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-005_118bpm-A.mp3",
+        "KU-Z5-005_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-006_118bpm",
+      "zone": 5,
+      "seq": 6,
+      "bpm": 118,
+      "title": "KU-Z5-006_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-006_118bpm-A.mp3",
+        "KU-Z5-006_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-007_118bpm",
+      "zone": 5,
+      "seq": 7,
+      "bpm": 118,
+      "title": "KU-Z5-007_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-007_118bpm-A.mp3",
+        "KU-Z5-007_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-008_118bpm",
+      "zone": 5,
+      "seq": 8,
+      "bpm": 118,
+      "title": "KU-Z5-008_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-008_118bpm-A.mp3",
+        "KU-Z5-008_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-009_118bpm",
+      "zone": 5,
+      "seq": 9,
+      "bpm": 118,
+      "title": "KU-Z5-009_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-009_118bpm-A.mp3",
+        "KU-Z5-009_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-010_118bpm",
+      "zone": 5,
+      "seq": 10,
+      "bpm": 118,
+      "title": "KU-Z5-010_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-010_118bpm-A.mp3",
+        "KU-Z5-010_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-011_118bpm",
+      "zone": 5,
+      "seq": 11,
+      "bpm": 118,
+      "title": "KU-Z5-011_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-011_118bpm-A.mp3",
+        "KU-Z5-011_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-012_118bpm",
+      "zone": 5,
+      "seq": 12,
+      "bpm": 118,
+      "title": "KU-Z5-012_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-012_118bpm-A.mp3",
+        "KU-Z5-012_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-013_118bpm",
+      "zone": 5,
+      "seq": 13,
+      "bpm": 118,
+      "title": "KU-Z5-013_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-013_118bpm-A.mp3",
+        "KU-Z5-013_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-014_118bpm",
+      "zone": 5,
+      "seq": 14,
+      "bpm": 118,
+      "title": "KU-Z5-014_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-014_118bpm-A.mp3",
+        "KU-Z5-014_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-015_118bpm",
+      "zone": 5,
+      "seq": 15,
+      "bpm": 118,
+      "title": "KU-Z5-015_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-015_118bpm-A.mp3",
+        "KU-Z5-015_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-016_118bpm",
+      "zone": 5,
+      "seq": 16,
+      "bpm": 118,
+      "title": "KU-Z5-016_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-016_118bpm-A.mp3",
+        "KU-Z5-016_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-017_118bpm",
+      "zone": 5,
+      "seq": 17,
+      "bpm": 118,
+      "title": "KU-Z5-017_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-017_118bpm-A.mp3",
+        "KU-Z5-017_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-018_118bpm",
+      "zone": 5,
+      "seq": 18,
+      "bpm": 118,
+      "title": "KU-Z5-018_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-018_118bpm-A.mp3",
+        "KU-Z5-018_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-019_118bpm",
+      "zone": 5,
+      "seq": 19,
+      "bpm": 118,
+      "title": "KU-Z5-019_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-019_118bpm-A.mp3",
+        "KU-Z5-019_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-020_118bpm",
+      "zone": 5,
+      "seq": 20,
+      "bpm": 118,
+      "title": "KU-Z5-020_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-020_118bpm-A.mp3",
+        "KU-Z5-020_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-021_118bpm",
+      "zone": 5,
+      "seq": 21,
+      "bpm": 118,
+      "title": "KU-Z5-021_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-021_118bpm-A.mp3",
+        "KU-Z5-021_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-022_118bpm",
+      "zone": 5,
+      "seq": 22,
+      "bpm": 118,
+      "title": "KU-Z5-022_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-022_118bpm-A.mp3",
+        "KU-Z5-022_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-023_118bpm",
+      "zone": 5,
+      "seq": 23,
+      "bpm": 118,
+      "title": "KU-Z5-023_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-023_118bpm-A.mp3",
+        "KU-Z5-023_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-024_118bpm",
+      "zone": 5,
+      "seq": 24,
+      "bpm": 118,
+      "title": "KU-Z5-024_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-024_118bpm-A.mp3",
+        "KU-Z5-024_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-025_118bpm",
+      "zone": 5,
+      "seq": 25,
+      "bpm": 118,
+      "title": "KU-Z5-025_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-025_118bpm-A.mp3",
+        "KU-Z5-025_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-026_118bpm",
+      "zone": 5,
+      "seq": 26,
+      "bpm": 118,
+      "title": "KU-Z5-026_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-026_118bpm-A.mp3",
+        "KU-Z5-026_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-027_118bpm",
+      "zone": 5,
+      "seq": 27,
+      "bpm": 118,
+      "title": "KU-Z5-027_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-027_118bpm-A.mp3",
+        "KU-Z5-027_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-028_118bpm",
+      "zone": 5,
+      "seq": 28,
+      "bpm": 118,
+      "title": "KU-Z5-028_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-028_118bpm-A.mp3",
+        "KU-Z5-028_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-029_118bpm",
+      "zone": 5,
+      "seq": 29,
+      "bpm": 118,
+      "title": "KU-Z5-029_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-029_118bpm-A.mp3",
+        "KU-Z5-029_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-030_118bpm",
+      "zone": 5,
+      "seq": 30,
+      "bpm": 118,
+      "title": "KU-Z5-030_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-030_118bpm-A.mp3",
+        "KU-Z5-030_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-031_118bpm",
+      "zone": 5,
+      "seq": 31,
+      "bpm": 118,
+      "title": "KU-Z5-031_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-031_118bpm-A.mp3",
+        "KU-Z5-031_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-032_118bpm",
+      "zone": 5,
+      "seq": 32,
+      "bpm": 118,
+      "title": "KU-Z5-032_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-032_118bpm-A.mp3",
+        "KU-Z5-032_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-033_118bpm",
+      "zone": 5,
+      "seq": 33,
+      "bpm": 118,
+      "title": "KU-Z5-033_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-033_118bpm-A.mp3",
+        "KU-Z5-033_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-034_118bpm",
+      "zone": 5,
+      "seq": 34,
+      "bpm": 118,
+      "title": "KU-Z5-034_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-034_118bpm-A.mp3",
+        "KU-Z5-034_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-035_118bpm",
+      "zone": 5,
+      "seq": 35,
+      "bpm": 118,
+      "title": "KU-Z5-035_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-035_118bpm-A.mp3",
+        "KU-Z5-035_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-036_118bpm",
+      "zone": 5,
+      "seq": 36,
+      "bpm": 118,
+      "title": "KU-Z5-036_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-036_118bpm-A.mp3",
+        "KU-Z5-036_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-037_118bpm",
+      "zone": 5,
+      "seq": 37,
+      "bpm": 118,
+      "title": "KU-Z5-037_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-037_118bpm-A.mp3",
+        "KU-Z5-037_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-038_118bpm",
+      "zone": 5,
+      "seq": 38,
+      "bpm": 118,
+      "title": "KU-Z5-038_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-038_118bpm-A.mp3",
+        "KU-Z5-038_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-039_118bpm",
+      "zone": 5,
+      "seq": 39,
+      "bpm": 118,
+      "title": "KU-Z5-039_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-039_118bpm-A.mp3",
+        "KU-Z5-039_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-040_118bpm",
+      "zone": 5,
+      "seq": 40,
+      "bpm": 118,
+      "title": "KU-Z5-040_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-040_118bpm-A.mp3",
+        "KU-Z5-040_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-041_118bpm",
+      "zone": 5,
+      "seq": 41,
+      "bpm": 118,
+      "title": "KU-Z5-041_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-041_118bpm-A.mp3",
+        "KU-Z5-041_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-042_118bpm",
+      "zone": 5,
+      "seq": 42,
+      "bpm": 118,
+      "title": "KU-Z5-042_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-042_118bpm-A.mp3",
+        "KU-Z5-042_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-043_118bpm",
+      "zone": 5,
+      "seq": 43,
+      "bpm": 118,
+      "title": "KU-Z5-043_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-043_118bpm-A.mp3",
+        "KU-Z5-043_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-044_118bpm",
+      "zone": 5,
+      "seq": 44,
+      "bpm": 118,
+      "title": "KU-Z5-044_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-044_118bpm-A.mp3",
+        "KU-Z5-044_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-045_118bpm",
+      "zone": 5,
+      "seq": 45,
+      "bpm": 118,
+      "title": "KU-Z5-045_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-045_118bpm-A.mp3",
+        "KU-Z5-045_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-046_118bpm",
+      "zone": 5,
+      "seq": 46,
+      "bpm": 118,
+      "title": "KU-Z5-046_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-046_118bpm-A.mp3",
+        "KU-Z5-046_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-047_118bpm",
+      "zone": 5,
+      "seq": 47,
+      "bpm": 118,
+      "title": "KU-Z5-047_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-047_118bpm-A.mp3",
+        "KU-Z5-047_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-048_118bpm",
+      "zone": 5,
+      "seq": 48,
+      "bpm": 118,
+      "title": "KU-Z5-048_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-048_118bpm-A.mp3",
+        "KU-Z5-048_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-049_118bpm",
+      "zone": 5,
+      "seq": 49,
+      "bpm": 118,
+      "title": "KU-Z5-049_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-049_118bpm-A.mp3",
+        "KU-Z5-049_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "KU-Z5-050_118bpm",
+      "zone": 5,
+      "seq": 50,
+      "bpm": 118,
+      "title": "KU-Z5-050_118bpm",
+      "prompt": "",
+      "files": [
+        "KU-Z5-050_118bpm-A.mp3",
+        "KU-Z5-050_118bpm-B.mp3"
+      ],
+      "meta": {
+        "core": [
+          "dusty basement house",
+          "beatdown house"
+        ],
+        "drum": "",
+        "texture": "",
+        "melody": "",
+        "mood": "",
+        "soul": ""
+      },
+      "status": "pending",
+      "batch": "20260608-zone5",
+      "createdAt": "2026-06-08T00:00:00.000Z"
     }
   ],
-  "updatedAt": "2026-06-01T01:50:55.014Z"
+  "updatedAt": "2026-06-08T00:00:00.000Z"
 }

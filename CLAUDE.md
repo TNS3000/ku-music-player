@@ -51,6 +51,9 @@ raw soulful warmth
 | Zone 2「Active Flow」 | 13:00-19:00 | 100-112 | 午後の作業ピーク | 倉庫稼働・ピッキング |
 | Zone 3「Night Drive」 | 19:00-01:00 | 112-118 | 夜間集中の持続 | 夜間倉庫・搬送 |
 | Zone 4「Deep Night」 | 01:00-08:00 | 90-100 | 覚醒維持・疲労軽減 | 深夜〜早朝・単調作業 |
+| Zone 5「House Flow」 | 通し/任意 | 118 | ジャジー・ビートダウンハウス（つや消し・ローファイ・オーガニック） | 切替え用・気分転換 |
+
+> **Zone 5 補足:** 時間帯固定ではなく、手動切替え用の特別ゾーン。フュージョン臭を避けたジャジー・ビートダウンハウス。マットブラック（つや消し）の質感、ローファイ処理必須、オーガニック楽器寄り。ミュージシャン名は不使用。
 
 ### 機能性設計原則 / Functional Design Principles
 
@@ -98,6 +101,17 @@ lofi hip hop, chill hop, lofi electronic fusion, neo soul lofi, afro lofi, jazz 
 
 **Zone 4（90-100bpm）**
 lofi hip hop, ambient lofi, chill hop, midnight jazz lofi, soul jazz instrumental, bossa nova lofi, modal jazz lofi, downtempo soul, organic jazz lofi, late night soul instrumental
+
+**Zone 5（118bpm固定）**
+dusty basement house, beatdown house, lo-fi house, deep house, raw house, stripped house, dusty deep house
+
+**Zone 5 ドラム配分（量産時の比率）**
+- 四つ打ち（four-on-the-floor）: 50%
+- ローファイヒップホップ（lazy hip hop drums / boom bap）: 30%
+- 生ドラム・ヨレた人力グルーヴ（unquantized groove / behind-the-beat drums / loose human groove）: 20%
+
+固定NG（毎回必須）: no bright synths, no jazz fusion, no flashy chords, no drops
+固定処理（毎回必須）: heavy tape saturation, vinyl crackle, muffled high end, matte texture
 
 ### ドラムパターン（同一セッション内で被りを避ける） / Drum patterns (no repeats per session)
 ```
@@ -173,18 +187,19 @@ node prompt-generator.js --zone 2 --count 25
 
 ## 6. 楽曲ライブラリ状況 / Track Library Status
 
-*最終確認: 2026-06-04*
+*最終確認: 2026-06-08*
 
 | Zone | 配信曲数 / Tracks | 目標まで | BPM範囲 | ステータス / Status |
 |------|------------------|---------|---------|-------------------|
 | Zone 1「Deep Work」 | **110** | +10超過 | 70-90 | 目標達成・運用中 / Target reached |
 | Zone 2「Active Flow」 | **100** | 達成 | 100-112 | 目標達成・運用中 / Target reached |
 | Zone 3「Night Drive」 | **69** ※ | あと31曲 | 112-118 | 拡張中 / Expanding |
-| Zone 4「Deep Night」 | **10** | あと90曲 | 90-100 | 拡張予定 / Planned |
+| Zone 4「Deep Night」 | **109** | +9超過 | 90-100 | 目標達成・運用中 / Target reached |
+| Zone 5「House Flow」 | **100** | 達成 | 118 | 目標達成・運用中 / Target reached |
 
-**合計 / Total: 289 / 400曲（72.3%）**
+**合計 / Total: 488 / 500曲（97.6%）**
 
-**目標 / Target:** 各Zone 100曲（合計400曲）で24時間シャッフルの繰り返し感を最小化 / 100 tracks per zone (400 total) to minimize repetition over 24h shuffle.
+**目標 / Target:** 各Zone 100曲（合計500曲）で24時間シャッフルの繰り返し感を最小化 / 100 tracks per zone (500 total) to minimize repetition over 24h shuffle.
 
 ### 既知の問題 / Known Issues
 - **Zone3 KU-Z3-032-B 欠損**: `KU-Z3-032_116bpm-B.mp3` がHDD・リポジトリ両方に存在しない（生成漏れ）。SUNOで再生成が必要。
@@ -194,11 +209,18 @@ node prompt-generator.js --zone 2 --count 25
 - Zone 1: HDD=Repo=HTML=110 ✓
 - Zone 2: HDD=Repo=HTML=100 ✓
 - Zone 3: HDD=Repo=70（重複1含む実効69）、HTML=69 ※上記既知問題参照
-- Zone 4: HDD=Repo=HTML=10 ✓
+- Zone 4: HDD=Repo=HTML=109（KU-Z4-055-B 欠損1を含む実効109）✓
+- Zone 5: HDD=Repo=HTML=100 ✓
 
 ---
 
 ## 7. 直近の変更と次のアクション / Recent Changes & Next Steps
+
+### 2026-06-08 の作業
+- **Zone5本番反映**: KU-Z5-001〜050（A/B各50曲 = 100ファイル）を追加。Zone5合計100曲、目標達成。
+- **ZONE_META・ZONES拡張**: index.html に Zone5 追加（ZONE_META・ZONES両方）。
+- **prompts.json更新**: Zone5 50トラック分のメタデータ追加（prompt は空欄、後で流し込み予定）。
+- **ライブラリ表更新**: Zone4が前回作業でHDD=109曲になっていたため合わせて更新。合計488/500曲（97.6%）。
 
 ### 2026-06-04 の作業
 - **Zone1拡張完了**: KU-Z1-011〜060（A/B各50曲 = 100ファイル）を追加。Zone1合計110曲、目標100曲を達成。
@@ -209,7 +231,7 @@ node prompt-generator.js --zone 2 --count 25
 1. **Zone3 KU-Z3-032-B を生成**: SUNOで116bpm / Zone3スタイルで生成 → `zone3/` にコピー → index.htmlに1行追加
 2. **Zone3 重複artifact を削除**: `git rm "zone3/KU-Z3-032_116bpm-A (1).mp3" && git commit`
 3. **Zone3 拡張**: 現在69曲、目標まであと31曲
-4. **Zone4 拡張**: 現在10曲、最優先で拡張（目標まであと90曲）
+4. **Zone5 命名ズレのリネーム（任意）**: 001・002・048-b の5ファイルを正規形式に揃えてもよい
 
 ---
 
