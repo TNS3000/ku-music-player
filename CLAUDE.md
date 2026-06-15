@@ -187,7 +187,7 @@ node prompt-generator.js --zone 2 --count 25
 
 ## 6. 楽曲ライブラリ状況 / Track Library Status
 
-*最終確認: 2026-06-08*
+*最終確認: 2026-06-15*
 
 | Zone | 配信曲数 / Tracks | 目標まで | BPM範囲 | ステータス / Status |
 |------|------------------|---------|---------|-------------------|
@@ -195,9 +195,9 @@ node prompt-generator.js --zone 2 --count 25
 | Zone 2「Active Flow」 | **100** | 達成 | 100-112 | 目標達成・運用中 / Target reached |
 | Zone 3「Night Drive」 | **69** ※ | あと31曲 | 112-118 | 拡張中 / Expanding |
 | Zone 4「Deep Night」 | **109** | +9超過 | 90-100 | 目標達成・運用中 / Target reached |
-| Zone 5「House Flow」 | **100** | 達成 | 118 | 目標達成・運用中 / Target reached |
+| Zone 5「House Flow」 | **172** | +72超過 | 118 | 目標達成・運用中 / Target reached |
 
-**合計 / Total: 488 / 500曲（97.6%）**
+**合計 / Total: 560 / 500曲（112%）**
 
 **目標 / Target:** 各Zone 100曲（合計500曲）で24時間シャッフルの繰り返し感を最小化 / 100 tracks per zone (500 total) to minimize repetition over 24h shuffle.
 
@@ -210,7 +210,7 @@ node prompt-generator.js --zone 2 --count 25
 - Zone 2: HDD=Repo=HTML=100 ✓
 - Zone 3: HDD=Repo=70（重複1含む実効69）、HTML=69 ※上記既知問題参照
 - Zone 4: HDD=Repo=HTML=109（KU-Z4-055-B 欠損1を含む実効109）✓
-- Zone 5: HDD=Repo=HTML=100 ✓
+- Zone 5: HDD=Repo=HTML=172 ✓
 
 ---
 
