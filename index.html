@@ -667,10 +667,48 @@ body::after {
 <script>
 // === 再生ログ ===
 const LOG_KEY = 'ku_play_log'
+const UNSENT_KEY = 'ku_log_unsent'
 const AUTO_KEY = 'ku_auto_zone'
 const LIKES_KEY = 'ku_likes'
+const LOG_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzqjkNW9i3k5pwq53MEZdZjXWn-HPV-UuZpPaSi4Ubi2lra-PH97dy-9oNtlFNKq3aXwg/exec'
 const MAX_LOG_ENTRIES = 10000
 let trackEndedNaturally = false
+
+// 端末ID: 初回生成してlocalStorageに永続化
+const getDeviceId = () => {
+  let id = localStorage.getItem('ku_device_id')
+  if (!id) {
+    id = 'dev_' + Math.random().toString(36).slice(2, 8) + Math.random().toString(36).slice(2, 8)
+    localStorage.setItem('ku_device_id', id)
+  }
+  return id
+}
+const device_id = getDeviceId()
+
+let isFlushing = false
+
+const flushLogs = async () => {
+  if (isFlushing) return
+  let unsent
+  try { unsent = JSON.parse(localStorage.getItem(UNSENT_KEY) || '[]') } catch (_) { return }
+  if (!unsent.length) return
+  isFlushing = true
+  const batch = unsent.slice()
+  try {
+    const res = await fetch(LOG_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ device_id, events: batch })
+    })
+    if (res.ok) {
+      try {
+        const remaining = JSON.parse(localStorage.getItem(UNSENT_KEY) || '[]')
+        localStorage.setItem(UNSENT_KEY, JSON.stringify(remaining.slice(batch.length)))
+      } catch (_) {}
+    }
+  } catch (_) {}
+  isFlushing = false
+}
 
 const logEvent = (type, extra = {}) => {
   const now = new Date()
@@ -681,6 +719,12 @@ const logEvent = (type, extra = {}) => {
     logs.push(entry)
     if (logs.length > MAX_LOG_ENTRIES) logs.splice(0, logs.length - MAX_LOG_ENTRIES)
     localStorage.setItem(LOG_KEY, JSON.stringify(logs))
+  } catch (_) {}
+  try {
+    const unsent = JSON.parse(localStorage.getItem(UNSENT_KEY) || '[]')
+    unsent.push(entry)
+    localStorage.setItem(UNSENT_KEY, JSON.stringify(unsent))
+    if (unsent.length >= 10) flushLogs()
   } catch (_) {}
 }
 
@@ -1531,6 +1575,11 @@ const fmt = (s) => Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0')
 queue = buildQueue(currentZone)
 load(0)
 updatePill()
+
+// 60秒ごとに未送信ログを送信
+setInterval(flushLogs, 60000)
+// ページ離脱・バックグラウンド化で取りこぼさない
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flushLogs() })
 </script>
 </body>
 </html>
