@@ -237,3 +237,27 @@ node prompt-generator.js --zone 2 --count 25
 
 *このファイルは ku-music-player リポジトリ専用の作業憲法です。KU全体戦略は `~/KU/` を参照。*
 *This file is the working constitution for the ku-music-player repository only. For KU-wide strategy, see `~/KU/`.*
+
+## 5.5 SUNO生成ワークフロー / SUNO Generation Workflow
+
+### 役割分担（確定）/ Role split (confirmed)
+- **プロンプト生成＋採番**：Cowork がバッチ仕様で一括生成。`prompts.json` に
+  トラック番号・BPM・最終ファイル名（KU-Z[N]-[連番]_[BPM]bpm-[A/B].mp3）を先に確定。
+- **SUNO投入・生成**：Claude in Chrome で自動投入可能（実証済み 2026-07-21）。
+  ただしバルク投入はレート制限・規約リスクがあるため、小ロット（10曲程度）ずつ確認しながら実行。
+- **DL**：手動（Shuhei）。
+- **DL後の反映**：Claude Code がリネーム整合確認・zone[N]振り分け・index.html更新・git push。
+
+### ワークスペース規則（必須）/ Workspace rule (mandatory)
+- **Zone5 House系の生成先は必ず SUNOワークスペース「Vegekul_house」**。
+  Gramlog 等の別プロジェクトワークスペースに生成しないこと。混在するとDL仕分けが崩れる。
+- 生成開始前に、画面右上のワークスペース名が「Vegekul_house」であることを必ず確認。
+
+### 既知の注意 / Known caveats
+- SUNO生成画面ではファイル名（KU-Z5-XXX...）は付けられない。最終命名は prompts.json 準拠でDL後に確定。
+- SUNOは公開APIなし。自動化は Claude in Chrome によるUI操作で実現している。
+- クレジット目安：1生成 ≈ 10クレジット（A/B 2曲）。200プロンプト ≈ 約2,000クレジット。
+
+### 現在の状態メモ / Current state
+- Zone5：172曲（2026-06-15時点）。次バッチは KU-Z5-173 から採番。
+- 2026-07-21：Chrome自動投入の実証で Gramlog に1曲混入（"Basement Floor"）。要確認・除外。
